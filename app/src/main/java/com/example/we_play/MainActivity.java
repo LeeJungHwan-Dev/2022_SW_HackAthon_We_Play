@@ -2,47 +2,48 @@ package com.example.we_play;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
-    Context context = this;
+    EditText editTextName;
+    EditText editTextPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /**
-         *
-         * 메인 시작 페이지로 첫 로딩 화면 입니다.
-         * 1초간의 대기를 하고 다음 페이지로 넘어갑니다.
-         * 차후 이 페이지에 계정 로그인 / 회원가입을 구현해야 합니다.
-         *
-         * */
+        editTextName = findViewById(R.id.editName);
+        editTextPrice = findViewById(R.id.editPrice);
 
-        Go_main_page(context);
-
-
-
-    }
-
-
-    public void Go_main_page(Context context){
-        TimerTask timerTask = new TimerTask() {
+        // 버튼 클릭 이벤트
+        Button button = findViewById(R.id.buttonPay);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                Intent intent = new Intent(context,Main_page.class);
+            public void onClick(View v) {
+                // EditText에 입력한 상품 정보를 가져온다.
+                String name = editTextName.getText().toString();
+                String price = editTextPrice.getText().toString();
+
+                // 결제가 이루어지는 PayActivity를 생성한다.
+                // - 생성자를 이용하여 상품 정보를 입력한다.
+                PayActivity payActivity = new PayActivity(name, price);
+
+                // Intent로 새로운 Activity를 실행한다.
+                Intent intent = new Intent(getApplicationContext(), payActivity.getClass());
                 startActivity(intent);
             }
-        };
 
-        Timer timer = new Timer();
-        timer.schedule(timerTask,1500);
+
+
+
+
+});
     }
 }
