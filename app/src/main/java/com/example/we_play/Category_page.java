@@ -41,6 +41,7 @@ public class Category_page extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),Category_list.class);
                 intent.putExtra("지역",big_city);
                 intent.putExtra("카테고리",parent.getAdapter().getItem(position).toString());
+                intent.putExtra("작은지역",small_city);
                 startActivity(intent);
             }
         });
