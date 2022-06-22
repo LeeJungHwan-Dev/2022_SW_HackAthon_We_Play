@@ -23,10 +23,13 @@ public class MainActivity extends AppCompatActivity {
          * 메인 시작 페이지로 첫 로딩 화면 입니다.
          * 1초간의 대기를 하고 다음 페이지로 넘어갑니다.
          * 차후 이 페이지에 계정 로그인 / 회원가입을 구현해야 합니다.
-         *
+         * 차후 Glide 라이브러리를 사용해 이미지도 추가해야함.
+         * 차후 overridePendingTransition(); 창 전환 애니메이션도 구현할 예정
          * */
 
         Go_main_page(context);
+
+
 
 
 
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void Go_main_page(Context context){
+
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -44,5 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         Timer timer = new Timer();
         timer.schedule(timerTask,1500);
+
     }
 }
