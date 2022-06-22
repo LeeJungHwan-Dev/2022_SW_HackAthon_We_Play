@@ -3,9 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/admin/AndroidStudioProjects/we_play/app/src/main/res/layout/activity_main.xml" value="0.17806484295845998" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/we_play/app/src/main/res/layout/activity_pay.xml" value="0.20677083333333332" />
-        <entry key="..\:/Users/admin/AndroidStudioProjects/we_play/app/src/main/res/layout/activitypay.xml" value="0.23596014492753623" />
+        <entry key="app/src/main/res/drawable/text_box_line.xml" value="0.1075" />
+        <entry key="app/src/main/res/drawable/top_stork.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/top_storke.xml" value="0.1075" />
+        <entry key="app/src/main/res/layout/activity_categort_list.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_category_page.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_info_page.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.20277777777777778" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.275980224609375" />
+        <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.3337366739908854" />
+        <entry key="app/src/main/res/layout/custom_category.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/gird_layout.xml" value="0.28125" />
       </map>
     </option>
   </component>

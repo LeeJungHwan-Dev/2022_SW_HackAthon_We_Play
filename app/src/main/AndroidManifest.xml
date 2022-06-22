@@ -2,10 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.we_play">
+
     <!-- 인터넷 사용 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".kakaologin_kotlin"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.We_play"
         tools:targetApi="31">
+        <activity
+            android:name=".loginActivity"
+            android:exported="false" />
         <activity
             android:name=".PayActivity"
             android:exported="false" />
@@ -39,16 +44,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
-                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth“ -->
                 <data
                     android:host="oauth"
                     android:scheme="kakao4b78357afd63b4e6ec4c193e0d91a1e1" />
