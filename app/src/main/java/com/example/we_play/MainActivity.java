@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
        TimerTask timerTask = new TimerTask() {
            @Override
            public void run() {
-               Intent intent = new Intent(getApplicationContext(),Category_page.class);
+               Intent intent = new Intent(getApplicationContext(),Main_page.class);
                startActivity(intent);
            }
        };
