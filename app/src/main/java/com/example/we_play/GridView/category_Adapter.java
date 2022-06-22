@@ -16,7 +16,7 @@ public class category_Adapter extends BaseAdapter {
 
     Context context;
     LayoutInflater inflater;
-    String[] category_title = {"힐링","문화","액티비티","행사","로컬맛집","가이드"};
+    String[] category_title = {"힐링","문화","액티비티","행사","로컬 맛집","가이드"};
 
 
     public category_Adapter(Context context){
@@ -65,7 +65,7 @@ public class category_Adapter extends BaseAdapter {
             Glide.with(view).load(R.drawable.healing).circleCrop().into(category_img_view);
         }else if(str.equals("문화")){
             Glide.with(view).load(R.drawable.culture).circleCrop().into(category_img_view);
-        }else if(str.equals("로컬맛집")){
+        }else if(str.equals("로컬 맛집")){
             Glide.with(view).load(R.drawable.local_restaurant).circleCrop().into(category_img_view);
         }else if(str.equals("액티비티")){
             Glide.with(view).load(R.drawable.activities).circleCrop().into(category_img_view);

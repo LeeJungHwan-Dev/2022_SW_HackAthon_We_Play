@@ -66,7 +66,12 @@ public class Category_list extends AppCompatActivity {
                     try {
                         location.add(documentSnapshot.get("주소").toString());
                     }catch (Exception e){
-                        location.add(documentSnapshot.get("위치정보").toString());
+                        try {
+                            location.add(documentSnapshot.get("위치정보").toString());
+                        }catch (Exception a){
+                            location.add(documentSnapshot.get("장소").toString());
+                        }
+
                     }
 
 
