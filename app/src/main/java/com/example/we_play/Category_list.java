@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -43,16 +44,20 @@ public class Category_list extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        CollectionReference collectionReference = db.collection("관광정보").document("전라북도").collection(category);
+        CollectionReference collectionReference = db.collection("관광정보").document("강원도").collection(category);
 
         collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 for(QueryDocumentSnapshot documentSnapshot : task.getResult()){
+
                     String img_url = documentSnapshot.get("img_url").toString();
                     String img_url2 = "http://"+ img_url.substring(8);
-                    Log.i("asd",img_url2);
-                    Glide.with(getApplicationContext()).load("https://tour.jb.go.kr/attachfiles/ctnt/migration/001012/1385687953530.jpg").into(imageView);
+                    Glide.with(getApplicationContext()).load(img_url2).into(imageView);
+                    
+
+
+
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {

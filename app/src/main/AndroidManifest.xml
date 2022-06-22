@@ -20,9 +20,6 @@
             android:name=".loginActivity"
             android:exported="false" />
         <activity
-            android:name=".PayActivity"
-            android:exported="false" />
-        <activity
             android:name=".Info_page"
             android:exported="false" />
         <activity
