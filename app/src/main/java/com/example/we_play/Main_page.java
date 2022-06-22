@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageButton;
 
 public class Main_page extends AppCompatActivity {
 
@@ -19,6 +20,7 @@ public class Main_page extends AppCompatActivity {
     Boolean check = false; // 처음 도를 선택했는지 시를 선택했는지 확인하는 변수
     String Big_city = ""; // 도단위 저장 변수
     String small_city = ""; // 시단위 저장 변수
+    ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class Main_page extends AppCompatActivity {
         setContentView(R.layout.activity_main_page);
 
         city_chose = findViewById(R.id.city_chose);
+        back = findViewById(R.id.main_page_back_btn);
 
 
         /**
@@ -45,12 +48,16 @@ public class Main_page extends AppCompatActivity {
                 if (check == false){
                     setLocation(parent.getAdapter().getItem(position).toString()); // 시 단위로 그리드 뷰 변경을 위한 함수 호철
                 }else{
-                    small_city = parent.getAdapter().getItem(position).toString();
-                    Intent intent = new Intent(getApplicationContext(),Category_page.class);
-                    intent.putExtra("big_city",Big_city); // 도 단위 자료 내장후 넘김
-                    intent.putExtra("small_city",small_city); // 시 단위 자료 내장후 넘김
-                    startActivity(intent);
+                    Go_next_page(parent.getAdapter().getItem(position).toString());
+                }
+            }
+        });
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(check == true){
+                    reset_city();
                 }
             }
         });
@@ -67,4 +74,21 @@ public class Main_page extends AppCompatActivity {
         city_chose.setAdapter(city_adapter);
         check = true;
     }
+
+    public void Go_next_page(String city){
+        small_city = city;
+        Intent intent = new Intent(getApplicationContext(),Category_page.class);
+        intent.putExtra("big_city",Big_city); // 도 단위 자료 내장후 넘김
+        intent.putExtra("small_city",small_city); // 시 단위 자료 내장후 넘김
+        startActivity(intent);
+    }
+
+    public void reset_city(){
+        Big_city = "";
+        city_Adapter city_adapter = new city_Adapter(this,location_return.Big_city());
+        city_adapter.notifyDataSetChanged(); // 데이터 변경을 암시 하고 아래 코드로 어댑터 재설정
+        city_chose.setAdapter(city_adapter);
+        check = false;
+    }
+
 }

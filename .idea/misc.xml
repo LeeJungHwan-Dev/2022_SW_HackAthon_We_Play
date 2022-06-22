@@ -8,8 +8,10 @@
         <entry key="app/src/main/res/drawable/top_storke.xml" value="0.1075" />
         <entry key="app/src/main/res/layout/activity_categort_list.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_category_page.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_info_page.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.275980224609375" />
-        <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.28229166666666666" />
+        <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.3337366739908854" />
+        <entry key="app/src/main/res/layout/custom_category.xml" value="0.28125" />
         <entry key="app/src/main/res/layout/gird_layout.xml" value="0.28125" />
       </map>
     </option>
