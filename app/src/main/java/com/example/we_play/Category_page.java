@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,6 +34,16 @@ public class Category_page extends AppCompatActivity {
 
         category_Adapter category_adapter = new category_Adapter(this);
         category_view.setAdapter(category_adapter);
+
+        category_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(),Category_list.class);
+                intent.putExtra("지역",big_city);
+                intent.putExtra("카테고리,",parent.getAdapter().getItem(position).toString());
+                startActivity(intent);
+            }
+        });
 
     }
 
