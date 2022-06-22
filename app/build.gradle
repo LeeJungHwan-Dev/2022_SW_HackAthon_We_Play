@@ -29,6 +29,8 @@ android {
 }
 
 dependencies {
+    // 카카오로그인
+    implementation "com.kakao.sdk:v2-user:2.10.0"
 
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
