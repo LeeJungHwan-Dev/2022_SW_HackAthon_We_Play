@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "955325979018",
+    "project_id": "we-play-1c753",
+    "storage_bucket": "we-play-1c753.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955325979018:android:4b1cc35e198b1c72439073",
+        "android_client_info": {
+          "package_name": "com.example.we_play"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955325979018-u1tl2rckkrvjc6djgnbs87ph4tpbcjmn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBHzHxvhgiYIhMKI9-46uVicdOxhkBkgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955325979018-u1tl2rckkrvjc6djgnbs87ph4tpbcjmn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
