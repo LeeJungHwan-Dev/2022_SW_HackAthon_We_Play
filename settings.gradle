@@ -16,5 +16,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "we_play"
 include ':app'
-
-
