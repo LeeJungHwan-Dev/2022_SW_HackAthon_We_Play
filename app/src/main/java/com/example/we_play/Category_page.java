@@ -24,8 +24,8 @@ public class Category_page extends AppCompatActivity {
 
     public void getCityData(){
         Intent intent = getIntent();
-        big_city = intent.getStringExtra("도");
-        small_city = intent.getStringExtra("시");
+        big_city = intent.getStringExtra("big_city");
+        small_city = intent.getStringExtra("small_city");
     }
 
 }

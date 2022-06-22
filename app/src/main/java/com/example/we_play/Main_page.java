@@ -1,64 +1,57 @@
 package com.example.we_play;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.we_play.GridView.city_Adapter;
 import com.example.we_play.Module.location_return;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
+import android.widget.GridView;
 
 public class Main_page extends AppCompatActivity {
 
-    Spinner location1,location2; // 도 , 시 단위를 선택하는 스피너 1,2
-    Button go_category; // 다음 페이지로 넘어가기 위한 버튼
+
+    GridView city_chose; // 2 * 2로 리스트를 보여주기 위한 그리드 뷰
     location_return location_return = new location_return(); // 지역명을 불러오기 위한 클래스 객체
+    Boolean check = false; // 처음 도를 선택했는지 시를 선택했는지 확인하는 변수
+    String Big_city = ""; // 도단위 저장 변수
+    String small_city = ""; // 시단위 저장 변수
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
-        location1 = findViewById(R.id.set_location1);
-        location2 = findViewById(R.id.set_location2);
-        go_category = findViewById(R.id.go_category_page);
+        city_chose = findViewById(R.id.city_chose);
 
-        firstLocation_set(); // 첫 지역 디폴트 지역 설정 및 추가
 
         /**
          *
-         * lcation1은 '도' 단위를 선택하는 스피너입니다.
-         * 해당 스피너에서 아이템을 선택하면 setLocation이라는 함수가 작동하고 location1에서 선택한 '도'를 넘겨 그 다음 단위인 '시'를 리턴 받습니다.
+         * 그리드뷰를 사용하여 2*2를 구현하였습니다.
+         * baseAdapter를 상속받아 city_Adapter를 구현하였습니다
          *
          * */
 
+        city_Adapter city_adapter = new city_Adapter(this,location_return.Big_city());
+        city_chose.setAdapter(city_adapter);
 
-        location1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        city_chose.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                setLocation(location1.getSelectedItem().toString()); // 아이템이 선택 되었을 때
-            }
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (check == false){
+                    setLocation(parent.getAdapter().getItem(position).toString()); // 시 단위로 그리드 뷰 변경을 위한 함수 호철
+                }else{
+                    small_city = parent.getAdapter().getItem(position).toString();
+                    Intent intent = new Intent(getApplicationContext(),Category_page.class);
+                    intent.putExtra("big_city",Big_city); // 도 단위 자료 내장후 넘김
+                    intent.putExtra("small_city",small_city); // 시 단위 자료 내장후 넘김
+                    startActivity(intent);
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                setLocation(location1.getSelectedItem().toString()); // 아이템이 선택되지 않았을 때
-            }
-        });
-
-
-        go_category.setOnClickListener(new View.OnClickListener() { // 완료 버튼을 눌렀을 때 이벤트 처리
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Category_page.class); //다음 페이지로 넘어가기위한 인텐트를 생성하고
-                intent.putExtra("도",location1.getSelectedItem().toString()); // putExtra를 사용하여 (key,value) 방식으로 값 전달
-                intent.putExtra("시",location2.getSelectedItem().toString());
-                startActivity(intent); // 인텐트 시작
-
-                // 차후 overridePendingTransition(); 창 전환 애니메이션도 구현할 예정
-
+                }
             }
         });
 
@@ -68,17 +61,10 @@ public class Main_page extends AppCompatActivity {
 
 
     public void setLocation(String city){
-        //스피너는 어뎁터 + ui.xml 구조여서 어뎁터를 설정하고 스피너에 장착해야함.
-        //큰 단위 '도' 를 리턴 받고 '시'를 스피너에 추가한다.
-        ArrayAdapter<String> location2_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, location_return.small_city(city));
-        location2_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        location2.setAdapter(location2_adapter);
-    }
-
-    public  void firstLocation_set(){
-        ArrayAdapter<String> location1_adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,location_return.Big_city());
-        location1_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        location1.setAdapter(location1_adapter);
-        location1.setSelection(0);
+        Big_city = city;
+        city_Adapter city_adapter = new city_Adapter(this,location_return.small_city(city));
+        city_adapter.notifyDataSetChanged(); // 데이터 변경을 암시 하고 아래 코드로 어댑터 재설정
+        city_chose.setAdapter(city_adapter);
+        check = true;
     }
 }
