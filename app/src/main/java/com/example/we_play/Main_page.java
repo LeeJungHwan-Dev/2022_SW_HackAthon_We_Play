@@ -29,8 +29,10 @@ public class Main_page extends AppCompatActivity {
         firstLocation_set(); // 첫 지역 디폴트 지역 설정 및 추가
 
         /**
+         *
          * lcation1은 '도' 단위를 선택하는 스피너입니다.
          * 해당 스피너에서 아이템을 선택하면 setLocation이라는 함수가 작동하고 location1에서 선택한 '도'를 넘겨 그 다음 단위인 '시'를 리턴 받습니다.
+         *
          * */
 
 
