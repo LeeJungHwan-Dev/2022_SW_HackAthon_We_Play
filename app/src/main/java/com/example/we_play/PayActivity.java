@@ -64,6 +64,8 @@ public class PayActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_pay);
 
+
+
     // 초기화
     requestQueue = Volley.newRequestQueue(getApplicationContext());
     myWebViewClient = new MyWebViewClient();
