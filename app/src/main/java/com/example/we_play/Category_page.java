@@ -40,7 +40,7 @@ public class Category_page extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(),Category_list.class);
                 intent.putExtra("지역",big_city);
-                intent.putExtra("카테고리,",parent.getAdapter().getItem(position).toString());
+                intent.putExtra("카테고리",parent.getAdapter().getItem(position).toString());
                 startActivity(intent);
             }
         });

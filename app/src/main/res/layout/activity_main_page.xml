@@ -42,9 +42,7 @@
         android:background="@drawable/next"
         app:layout_constraintBottom_toTopOf="@+id/city_chose"
         app:layout_constraintEnd_toStartOf="@+id/main_page_title"
-        app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.139" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
