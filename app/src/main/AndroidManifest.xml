@@ -14,6 +14,18 @@
         android:theme="@style/Theme.We_play"
         tools:targetApi="31">
         <activity
+            android:name=".Info_page"
+            android:exported="false" />
+        <activity
+            android:name=".Category_list"
+            android:exported="false" />
+        <activity
+            android:name=".Category_page"
+            android:exported="false" />
+        <activity
+            android:name=".Main_page"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
