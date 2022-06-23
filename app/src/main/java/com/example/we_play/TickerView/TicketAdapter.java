@@ -1,7 +1,6 @@
-package com.example.we_play.Recyclerview;
+package com.example.we_play.TickerView;
 
-import android.util.TypedValue;
-import android.view.Gravity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +11,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
 
 import com.example.we_play.R;
 
 public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.CustomViewHolder> {
-    private ArrayList<Dictionary> mList;
+    Context context;
+    private ArrayList<String> thumbnail_url;
+    private ArrayList<String> placeName;
+    private ArrayList<String> placeLoc;
+    private ArrayList<String> ticketDate;
+    private ArrayList<String> ticketPrice;
+    private ArrayList<String> ticketParticipant;
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
         protected ImageView thumbnail_url;
@@ -34,12 +38,25 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.CustomView
             this.location = (TextView) view.findViewById(R.id.tv_placeLocation);
             this.ticket_date = (TextView) view.findViewById(R.id.tv_ticketDate);
             this.ticket_participant = (TextView) view.findViewById(R.id.tv_TicketPrice);
+            this.ticket_price = (TextView) view.findViewById(R.id.tv_TicketPrice);
         }
     }
 
 
-    public TicketAdapter(ArrayList<Dictionary> list) {
-        this.mList = list;
+    public TicketAdapter(ArrayList<String> _thumbnail_url,
+                         ArrayList<String> _placeName,
+                         ArrayList<String> _placeLoc,
+                         ArrayList<String> _ticketDate_,
+                         ArrayList<String> _ticketPrice,
+                         ArrayList<String> _ticketParticipant,
+                         Context _context) {
+        this.thumbnail_url = _thumbnail_url;
+        this.placeName = _placeName;
+        this.placeLoc = _placeLoc;
+        this.ticketDate = _ticketDate_;
+        this.ticketPrice = _ticketPrice;
+        this.ticketParticipant = _ticketParticipant;
+        this.context = _context;
     }
 
     @Override
@@ -61,7 +78,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.CustomView
 
     @Override
     public int getItemCount() {
-        return (null != mList ? mList.size() : 0);
+        return (null != placeName ? placeName.size() : 0);
     }
 
 }
