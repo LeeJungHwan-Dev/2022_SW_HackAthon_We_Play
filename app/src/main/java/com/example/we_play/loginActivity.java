@@ -1,6 +1,8 @@
 package com.example.we_play;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +20,7 @@ public class loginActivity extends AppCompatActivity {
 
     OAuthLogin mOAuthLoginModule = OAuthLogin.getInstance();
     ImageButton btn1, btn2, btn3;
+    Button go_main;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class loginActivity extends AppCompatActivity {
         btn1 = findViewById(R.id.n);
         btn2 = findViewById(R.id.h);
         btn3 = findViewById(R.id.g);
+        go_main = findViewById(R.id.button5);
 
         mOAuthLoginModule.init(
                 loginActivity.this
@@ -44,9 +48,30 @@ public class loginActivity extends AppCompatActivity {
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) { googleLogin(); }
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),imformation.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+                finish();
+            }
         });
 
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                googleLogin();
+            }
+        });
+
+
+        go_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Main_page.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+            }
+        });
 
 
     }
