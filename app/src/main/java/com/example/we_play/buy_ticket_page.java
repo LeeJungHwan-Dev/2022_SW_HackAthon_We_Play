@@ -23,7 +23,7 @@ import java.io.InputStreamReader;
 
 public class buy_ticket_page extends AppCompatActivity {
 
-    String title , pic_link , location , name;
+    String title , pic_link , location , name , date;
     ImageView buy_img;
     TextView buy_title,buy_location,chose_day,count_peple,total;
     CalendarView set_day;
@@ -69,6 +69,7 @@ public class buy_ticket_page extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 chose_day.setText("날짜 : "+String.valueOf(year)+"/"+String.valueOf(month)+"/"+String.valueOf(dayOfMonth));
+                date = "날짜 : "+String.valueOf(year)+"/"+String.valueOf(month)+"/"+String.valueOf(dayOfMonth);
             }
         });
 
@@ -105,7 +106,8 @@ public class buy_ticket_page extends AppCompatActivity {
                 if(totalpay <= 0){
                     Toast.makeText(getApplicationContext(),"표를 한장 이상 구매해주세요.",Toast.LENGTH_SHORT).show();
                 }else {
-                    KakaoPay kakaopay = new KakaoPay(title, String.valueOf(totalpay), "asd", getApplication());
+                    //String name, String amount ,String date ,String peoplecount,Application application
+                    KakaoPay kakaopay = new KakaoPay(title, String.valueOf(totalpay), date,"구매자", getApplication());
                     kakaopay.pay();
                 }
             }

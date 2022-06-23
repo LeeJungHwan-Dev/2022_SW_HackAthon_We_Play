@@ -4,12 +4,22 @@ package com.example.we_play.kakaopayModule;
 import android.app.Application;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.iamport.sdk.data.sdk.IamPortRequest;
 import com.iamport.sdk.data.sdk.PG;
 import com.iamport.sdk.data.sdk.PayMethod;
 import com.iamport.sdk.domain.core.Iamport;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import kotlin.Unit;
 
@@ -17,14 +27,21 @@ public class KakaoPay extends Application {
 
     String name = ""; // 상품 이름
     String amount = ""; // 상품 가격
+    String email = "";
     String buyer_name = ""; // 구매자 이름
+    String date = "";
+    String peoplecount = "";
     Application application; // 아임포트 인스턴스를 craete 하기 위한 Application 변수
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    public KakaoPay(String name, String amount , String buyer_name , Application application){
+
+
+    public KakaoPay(String name, String amount ,String date ,String peoplecount,Application application){
         this.name = name;
         this.amount = amount;
-        this.buyer_name = buyer_name;
         this.application = application;
+        this.date = date;
+        this.peoplecount = peoplecount;
     }
 
     /**
@@ -39,6 +56,8 @@ public class KakaoPay extends Application {
     public void pay() {
         Iamport.INSTANCE.create(application);
 
+        email = readname("id.txt");
+        buyer_name = "구매자";
 
         IamPortRequest request = IamPortRequest.builder()
                 .pg(PG.kcp.makePgRawName(""))
@@ -56,8 +75,62 @@ public class KakaoPay extends Application {
                     // 최종 결제결과 콜백 함수.
                     String responseText = iamPortResponse.toString();
                     Log.d("IAMPORT_SAMPLE", responseText); // 완료될 경우 여기서 이벤트를 처리하면 됨. 차후 전자 티켓 추가 이벤트를 처리하면 될 거 같음.
+
+
+
+                    if(responseText.contains("imp_success=true")){
+
+                        Map<String,String> pay_info = new HashMap<>();
+                        pay_info.put("Overdue","false");
+                        pay_info.put("Used","false");
+                        pay_info.put("date",date);
+                        pay_info.put("numTicket",peoplecount);
+                        pay_info.put("price",amount);
+
+                        db.collection("회원정보").document(email).collection("티켓기록").document(name).set(pay_info).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+
+                            }
+                        });
+                    }
+
+
+
                     return Unit.INSTANCE;
                 });
     }
+
+
+    public String readname(String fileName){
+
+        try {
+            // 파일에서 읽은 데이터를 저장하기 위해서 만든 변수
+            StringBuffer data = new StringBuffer();
+            FileInputStream fs = openFileInput(fileName);//파일명
+            BufferedReader buffer = new BufferedReader
+                    (new InputStreamReader(fs));
+            String str = buffer.readLine(); // 파일에서 한줄을 읽어옴
+            if(str != null) {
+                while (str != null) {
+                    data.append(str+"\n");
+                    str = buffer.readLine();
+                }
+                buffer.close();
+                return data.toString();
+            }
+        } catch (Exception e) {
+
+        }
+        return null;
+    }
+
+
 }
+
 
