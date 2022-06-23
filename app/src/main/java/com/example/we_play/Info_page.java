@@ -70,10 +70,6 @@ public class Info_page extends AppCompatActivity {
 
     }
 
-
-
-
-
     public void setinfo(){
         Intent intent = getIntent();
         big_city = intent.getStringExtra("지역");

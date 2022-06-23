@@ -20,7 +20,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class Main_page extends AppCompatActivity {
+public class TravelActivity extends AppCompatActivity {
 
 
     GridView city_chose; // 2 * 2로 리스트를 보여주기 위한 그리드 뷰
@@ -66,14 +66,10 @@ public class Main_page extends AppCompatActivity {
             }
         });
 
-    try {
-        save("email.txt",intent.getStringExtra("이메일"));
-        save("mobile.txt",intent.getStringExtra("번호"));
-        save("name.txt",intent.getStringExtra("이름"));
-    }catch (Exception e){}
-
-
-
+        try {
+            save("id.txt",intent.getStringExtra("아이디"));
+            save("name.txt",intent.getStringExtra("이름"));
+        }catch (Exception e){}
     }
 
 

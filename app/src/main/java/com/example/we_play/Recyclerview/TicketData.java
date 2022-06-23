@@ -1,11 +1,11 @@
 package com.example.we_play.Recyclerview;
 
-public class reserved_data {
+public class TicketData {
     private String thumbnail;
     private String placeName;
     private String description;
 
-    public reserved_data(String thumbnail, String placeName, String description) {
+    public TicketData(String thumbnail, String placeName, String description) {
         this.thumbnail = thumbnail;
         this.placeName = placeName;
         this.description = description;

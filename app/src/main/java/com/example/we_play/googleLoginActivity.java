@@ -26,7 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class googleLogin  extends AppCompatActivity {
+public class googleLoginActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 9001;
     GoogleSignInOptions gso;
     GoogleSignInClient mGoogleSignInClient;
@@ -36,7 +36,7 @@ public class googleLogin  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_login);
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
 

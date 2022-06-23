@@ -6,14 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.we_play.GridView.category_Adapter;
-import com.example.we_play.GridView.city_Adapter;
 
 public class Category_page extends AppCompatActivity {
 
@@ -58,7 +55,7 @@ public class Category_page extends AppCompatActivity {
         back_city.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Main_page.class);
+                Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
                 startActivity(intent);
                 finish();
             }
