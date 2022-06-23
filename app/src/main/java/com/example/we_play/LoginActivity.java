@@ -77,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                                 intent.putExtra("아아디", hashedId);
                                 intent.putExtra("이름", documentSnapshot.get("Name").toString());
                                 startActivity(intent);
+                                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
                                 finish();
                                 break;
                             }

@@ -15,7 +15,10 @@ import com.iamport.sdk.data.sdk.PayMethod;
 import com.iamport.sdk.domain.core.Iamport;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Date;
 import java.util.HashMap;
@@ -30,18 +33,23 @@ public class KakaoPay extends Application {
     String email = "";
     String buyer_name = ""; // 구매자 이름
     String date = "";
+    String location = "";
+    String img_url = "";
     String peoplecount = "";
     Application application; // 아임포트 인스턴스를 craete 하기 위한 Application 변수
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
 
-    public KakaoPay(String name, String amount ,String date ,String peoplecount,Application application){
+    public KakaoPay(String name, String amount ,String date ,String peoplecount,String img_url, String location ,String email,Application application){
         this.name = name;
         this.amount = amount;
         this.application = application;
         this.date = date;
         this.peoplecount = peoplecount;
+        this.img_url = img_url;
+        this.location = location;
+        this.email = email;
     }
 
     /**
@@ -56,7 +64,6 @@ public class KakaoPay extends Application {
     public void pay() {
         Iamport.INSTANCE.create(application);
 
-        email = readname("id.txt");
         buyer_name = "구매자";
 
         IamPortRequest request = IamPortRequest.builder()
@@ -86,6 +93,9 @@ public class KakaoPay extends Application {
                         pay_info.put("date",date);
                         pay_info.put("numTicket",peoplecount);
                         pay_info.put("price",amount);
+                        pay_info.put("location",location);
+                        pay_info.put("img_url",img_url);
+
 
                         db.collection("회원정보").document(email).collection("티켓기록").document(name).set(pay_info).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -107,28 +117,6 @@ public class KakaoPay extends Application {
     }
 
 
-    public String readname(String fileName){
-
-        try {
-            // 파일에서 읽은 데이터를 저장하기 위해서 만든 변수
-            StringBuffer data = new StringBuffer();
-            FileInputStream fs = openFileInput(fileName);//파일명
-            BufferedReader buffer = new BufferedReader
-                    (new InputStreamReader(fs));
-            String str = buffer.readLine(); // 파일에서 한줄을 읽어옴
-            if(str != null) {
-                while (str != null) {
-                    data.append(str+"\n");
-                    str = buffer.readLine();
-                }
-                buffer.close();
-                return data.toString();
-            }
-        } catch (Exception e) {
-
-        }
-        return null;
-    }
 
 
 }

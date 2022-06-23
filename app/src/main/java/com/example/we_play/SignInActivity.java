@@ -165,6 +165,7 @@ public class SignInActivity extends AppCompatActivity {
                 intent.putExtra("이름", getName);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
                 finish();
               }
             })

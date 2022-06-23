@@ -35,6 +35,7 @@ public class Category_page extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),infoActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
             }
         });
 
@@ -53,11 +54,13 @@ public class Category_page extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(),food_page.class);
                     intent.putExtra("도시",big_city);
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
                 }else {
                     Intent intent = new Intent(getApplicationContext(), Category_list.class);
                     intent.putExtra("지역", big_city);
                     intent.putExtra("카테고리", parent.getAdapter().getItem(position).toString());
                     startActivity(intent);
+                    overridePendingTransition(R.anim.fadein,R.anim.fadeout);
                 }
             }
         });
@@ -67,6 +70,7 @@ public class Category_page extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
                 finish();
             }
         });

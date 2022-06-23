@@ -27,6 +27,7 @@ public class infoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), info_Edit_Activity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
             }
         });
 
@@ -35,6 +36,7 @@ public class infoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), info_journal_Activity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
             }
         });
 
@@ -43,6 +45,7 @@ public class infoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), info_payment_Activity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
             }
         });
 
@@ -51,6 +54,7 @@ public class infoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), info_Set_Activity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
             }
         });
 
@@ -59,6 +63,7 @@ public class infoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), info_Service_Activity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
             }
         });
 
@@ -67,6 +72,7 @@ public class infoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), info_delete_Activity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
             }
         });
     }

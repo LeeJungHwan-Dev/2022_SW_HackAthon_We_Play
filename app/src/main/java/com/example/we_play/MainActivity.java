@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("아이디",data.get("아이디"));
             intent.putExtra("이름",data.get("이름"));
             startActivity(intent);
+            overridePendingTransition(R.anim.fadein,R.anim.fadeout);
         }
 
 //        TimerTask timerTask = new TimerTask() {

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.ImageButton;
@@ -17,13 +18,18 @@ import com.example.we_play.kakaopayModule.KakaoPay;
 import com.iamport.sdk.domain.core.Iamport;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class buy_ticket_page extends AppCompatActivity {
 
-    String title , pic_link , location , name , date;
+    String title , pic_link , location , name , date , url , email;
     ImageView buy_img;
     TextView buy_title,buy_location,chose_day,count_peple,total;
     CalendarView set_day;
@@ -54,12 +60,15 @@ public class buy_ticket_page extends AppCompatActivity {
         down = findViewById(R.id.peple_down);
         go_pay = findViewById(R.id.go_pay);
 
+       Map<String,String> map =  CheckFileExist();
+
+       email = map.get("아이디");
+       name = map.get("이름");
+
 
         setData();
-        try {
-            name = readname("name.txt");
-        }catch (Exception e){}
 
+        url = pic_link;
 
         Glide.with(this).load(pic_link).into(buy_img);
         buy_title.setText(title);
@@ -69,7 +78,7 @@ public class buy_ticket_page extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 chose_day.setText("날짜 : "+String.valueOf(year)+"/"+String.valueOf(month)+"/"+String.valueOf(dayOfMonth));
-                date = "날짜 : "+String.valueOf(year)+"/"+String.valueOf(month)+"/"+String.valueOf(dayOfMonth);
+                date = String.valueOf(year)+"."+String.valueOf(month)+"."+String.valueOf(dayOfMonth);
             }
         });
 
@@ -107,7 +116,7 @@ public class buy_ticket_page extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"표를 한장 이상 구매해주세요.",Toast.LENGTH_SHORT).show();
                 }else {
                     //String name, String amount ,String date ,String peoplecount,Application application
-                    KakaoPay kakaopay = new KakaoPay(title, String.valueOf(totalpay), date,"구매자", getApplication());
+                    KakaoPay kakaopay = new KakaoPay(title, String.valueOf(totalpay), date,"구매자",url,location,email, getApplication());
                     kakaopay.pay();
                 }
             }
@@ -126,27 +135,28 @@ public class buy_ticket_page extends AppCompatActivity {
         location = intent.getStringExtra("장소");
     }
 
-    public String readname(String fileName){
 
+    public Map<String, String> CheckFileExist() {
+        Map<String, String> data = new HashMap<>();
         try {
-            // 파일에서 읽은 데이터를 저장하기 위해서 만든 변수
-            StringBuffer data = new StringBuffer();
-            FileInputStream fs = openFileInput(fileName);//파일명
-            BufferedReader buffer = new BufferedReader
-                    (new InputStreamReader(fs));
-            String str = buffer.readLine(); // 파일에서 한줄을 읽어옴
-            if(str != null) {
-                while (str != null) {
-                    data.append(str+"\n");
-                    str = buffer.readLine();
-                }
-                buffer.close();
-                return data.toString();
-            }
-        } catch (Exception e) {
-
+            FileInputStream fi = openFileInput("id.txt");
+            DataInputStream dis = new DataInputStream(fi);
+            data.put("아이디", dis.readUTF());
+            dis.close();
+            fi.close();
+            fi = openFileInput("name.txt");
+            dis = new DataInputStream(fi);
+            data.put("이름", dis.readUTF());
+            dis.close();
+            fi.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            data.put("아이디", null);
+        } catch (IOException e) {
+            e.printStackTrace();
+            data.put("아이디", null);
         }
-        return null;
+        return data;
     }
 
 }

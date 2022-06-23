@@ -79,6 +79,7 @@ public class TravelActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),Category_page.class);
         intent.putExtra("big_city",Big_city); // 도 단위 자료 내장후 넘김
         startActivity(intent);
+        overridePendingTransition(R.anim.fadein,R.anim.fadeout);
 
     }
 
