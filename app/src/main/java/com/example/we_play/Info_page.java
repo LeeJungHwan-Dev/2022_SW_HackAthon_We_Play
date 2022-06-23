@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,8 +24,8 @@ public class Info_page extends AppCompatActivity {
     String category = "";
     String pic_link = "";
     String title = "";
-    String info = "";
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    ImageButton back;
     ImageView title_img;
     TextView title_tv , info_tv;
 
@@ -35,14 +38,22 @@ public class Info_page extends AppCompatActivity {
         title_img = findViewById(R.id.info_img);
         title_tv = findViewById(R.id.title);
         info_tv = findViewById(R.id.info_text);
+        back = findViewById(R.id.back_category_list);
 
         setinfo();
+
 
 
         Glide.with(this).load(pic_link).into(title_img);
         title_tv.setText(title);
         getInfo();
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
 
@@ -65,7 +76,11 @@ public class Info_page extends AppCompatActivity {
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                info_tv.setText(task.getResult().get("소개").toString());
+                try {
+                    info_tv.setText(task.getResult().get("description").toString());
+                }catch (Exception e){
+                    info_tv.setText("관련된 소개 내용이 없습니다 ㅠㅠ");
+                }
             }
         });
     }

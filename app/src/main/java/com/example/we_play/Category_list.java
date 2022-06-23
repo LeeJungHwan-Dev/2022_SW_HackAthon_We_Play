@@ -58,10 +58,18 @@ public class Category_list extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 for(QueryDocumentSnapshot documentSnapshot : task.getResult()){
 
-                    String img_url = documentSnapshot.get("img_url").toString();
-                    String img_url2 = "http://"+ img_url.substring(8);
+                    try {
+                        String img_url = documentSnapshot.get("thumbnail_url").toString();
+                        String img_url2 = "http://"+ img_url.substring(8);
+                        pic_link.add(img_url2);
+                    }catch (Exception e){
+                        String img_url = documentSnapshot.get("img_url").toString();
+                        String img_url2 = "http://"+ img_url.substring(8);
+                        pic_link.add(img_url2);
+                    }
 
-                    pic_link.add(img_url2);
+
+
                     title.add(documentSnapshot.getId());
 
                     try {

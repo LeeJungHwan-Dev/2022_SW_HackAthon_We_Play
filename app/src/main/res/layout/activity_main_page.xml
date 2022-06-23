@@ -17,10 +17,10 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.223" />
+        app:layout_constraintVertical_bias="0.196" />
 
     <GridView
         android:id="@+id/city_chose"
@@ -42,7 +42,9 @@
         android:background="@drawable/next"
         app:layout_constraintBottom_toTopOf="@+id/city_chose"
         app:layout_constraintEnd_toStartOf="@+id/main_page_title"
+        app:layout_constraintHorizontal_bias="0.246"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.521" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

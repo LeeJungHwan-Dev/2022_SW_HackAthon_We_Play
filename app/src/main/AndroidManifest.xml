@@ -15,9 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.We_play"
         tools:targetApi="32">
-
-        <activity android:name="com.nhn.android.naverlogin.ui.OAuthCustomTabActivity"
-            android:exported="true"/>
+        <activity
+            android:name=".food_page"
+            android:exported="false" />
+        <activity
+            android:name="com.nhn.android.naverlogin.ui.OAuthCustomTabActivity"
+            android:exported="true" />
         <activity
             android:name=".loginActivity"
             android:exported="false" />
@@ -38,7 +41,8 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT"/>
+
+                <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

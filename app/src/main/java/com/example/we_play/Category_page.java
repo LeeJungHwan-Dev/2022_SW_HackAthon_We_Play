@@ -41,10 +41,16 @@ public class Category_page extends AppCompatActivity {
         category_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(),Category_list.class);
-                intent.putExtra("지역",big_city);
-                intent.putExtra("카테고리",parent.getAdapter().getItem(position).toString());
-                startActivity(intent);
+                if(parent.getAdapter().getItem(position).toString().equals("로컬 맛집")){
+                    Intent intent = new Intent(getApplicationContext(),food_page.class);
+                    intent.putExtra("도시",big_city);
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(getApplicationContext(), Category_list.class);
+                    intent.putExtra("지역", big_city);
+                    intent.putExtra("카테고리", parent.getAdapter().getItem(position).toString());
+                    startActivity(intent);
+                }
             }
         });
 
