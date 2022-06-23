@@ -6,8 +6,10 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -65,6 +67,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
         });
 
+        holder.food_info_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context,"cliked!",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
     @Override
@@ -75,6 +85,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView food_image;
         TextView food_title, food_location;
+        ImageButton food_info_btn;
 
 
         ViewHolder(View itemView) {
@@ -83,6 +94,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             food_image = itemView.findViewById(R.id.food_img);
             food_title = itemView.findViewById(R.id.food_title);
             food_location = itemView.findViewById(R.id.food_location_tv);
+            food_info_btn = itemView.findViewById(R.id.more_info_btn);
 
 
         }

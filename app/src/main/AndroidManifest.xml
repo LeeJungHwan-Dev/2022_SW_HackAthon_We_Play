@@ -14,11 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.We_play"
-        tools:targetApi="32">
-
-        <activity android:name=".information"
-            android:exported="false"/>
-
+        tools:targetApi="32" >
+        <activity
+            android:name=".googleLogin"
+            android:exported="false" />
+        <activity
+            android:name=".signInActivity"
+            android:exported="false" />
         <activity
             android:name=".food_page"
             android:exported="false" />
@@ -45,7 +47,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

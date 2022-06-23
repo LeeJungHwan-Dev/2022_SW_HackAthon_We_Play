@@ -3,22 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/IV_Logo"
         android:layout_width="473dp"
         android:layout_height="428dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/n"
+        app:layout_constraintBottom_toTopOf="@+id/btn_naverLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteX="-31dp"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/h"
+        android:id="@+id/btn_homeLogin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="55dp"
@@ -30,39 +32,54 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/g"
-        app:srcCompat="@drawable/h" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_googleLogin"
+        app:srcCompat="@drawable/h"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/g"
+        android:id="@+id/btn_googleLogin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="5dp"
         android:background="@android:color/transparent"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/h"
+        app:layout_constraintBottom_toTopOf="@+id/btn_homeLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/n"
-        app:srcCompat="@drawable/g" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_naverLogin"
+        app:srcCompat="@drawable/g"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/n"
+        android:id="@+id/btn_naverLogin"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginBottom="5dp"
         android:background="@android:color/transparent"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/g"
+        app:layout_constraintBottom_toTopOf="@+id/btn_googleLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:srcCompat="@drawable/n" />
+        app:layout_constraintTop_toBottomOf="@+id/IV_Logo"
+        app:srcCompat="@drawable/n"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btn_goto_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.286" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
