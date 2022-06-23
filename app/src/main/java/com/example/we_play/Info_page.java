@@ -23,6 +23,7 @@ public class Info_page extends AppCompatActivity {
     String big_city = "";
     String category = "";
     String pic_link = "";
+    String location = "";
     String title = "";
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     ImageButton back,buy;
@@ -60,6 +61,9 @@ public class Info_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),buy_ticket_page.class);
+                intent.putExtra("제목",title);
+                intent.putExtra("사진",pic_link);
+                intent.putExtra("장소",location);
                 startActivity(intent);
                 overridePendingTransition(R.anim.fadein,R.anim.fadeout);
                 finish();
@@ -76,6 +80,7 @@ public class Info_page extends AppCompatActivity {
         category = intent.getStringExtra("카테고리");
         pic_link = intent.getStringExtra("사진");
         title = intent.getStringExtra("제목");
+        location = intent.getStringExtra("위치");
     }
 
     public void getInfo(){
