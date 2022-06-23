@@ -28,7 +28,6 @@ import java.util.Map;
 public class googleLogin  extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient mGoogleSignInClient;
-    ImageButton btn3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

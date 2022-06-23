@@ -6,6 +6,7 @@ import static java.lang.Integer.parseInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -26,10 +27,12 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class imformation extends AppCompatActivity {
+public class signInActivity extends AppCompatActivity {
 
   EditText Name, Number, Year, Month, Day, Id, Pass, PassCheck;
   Button button,button3;
@@ -40,7 +43,7 @@ public class imformation extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_imformation);
+    setContentView(R.layout.activity_signin);
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     Name=(EditText)findViewById(R.id.EditName);
@@ -89,17 +92,11 @@ public class imformation extends AppCompatActivity {
       @Override
       public void onClick(View view) {
 
-        two_id_check(Id.getText().toString());
+        two_id_check(hashing(Id.getText().toString()));
 
         if(check == false) {
           button3.setEnabled(false);
-
-
-
         }}});
-
-
-
 
 
 
@@ -137,27 +134,36 @@ public class imformation extends AppCompatActivity {
         String Birthday = Year.getText().toString() + "/" + Month.getText().toString() + "/" + Day.getText().toString();
         String getId = Id.getText().toString();
 
-        two_id_check(getId);
+        two_id_check(hashing(getId));
 
         if(check == false) {
           Map<String, Object> user = new HashMap<>();
+
+          String hashedId = hashing(getId);
+          String hashedPW = hashing(getPass);
 
           user.put("Name", getName);
           user.put("PhoneNumber", getNumber);
           user.put("BirthDay", Birthday);
           user.put("ID", getId);
-          user.put("Password", getPass);
+          user.put("Password", hashedPW);
           user.put("Site", "home");
 
 
 // Add a new document with a generated ID
           db.collection("회원정보")
-            .document(getId)
+            .document(hashedId)
             .set(user)
             .addOnSuccessListener(new OnSuccessListener<Void>() {
               @Override
               public void onSuccess(Void aVoid) {
                 Log.d(TAG, "DocumentSnapshot successfully written!");
+                Intent intent = new Intent(getApplicationContext(), Main_page.class);
+                intent.putExtra("ID", hashedId);
+                intent.putExtra("이름", getName);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
               }
             })
             .addOnFailureListener(new OnFailureListener() {
@@ -175,14 +181,11 @@ public class imformation extends AppCompatActivity {
   }
 
 
-  public void two_id_check(String id){
+  public Boolean two_id_check(String id){
     check = false;
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-
     CollectionReference collectionReference = db.collection("회원정보");
-
-
     collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
       @Override
       public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -196,10 +199,27 @@ public class imformation extends AppCompatActivity {
         if(check == true){
           Toast.makeText(getApplicationContext(),"중복 값이 존재합니다",Toast.LENGTH_SHORT).show();
           button3.setEnabled(true);
-
-
       }
+        return check;
   }
 
+  public String hashing(String str) {
+    String result;
+    try {
+      MessageDigest sh = MessageDigest.getInstance("SHA-256");
+      sh.update(str.getBytes());
+      byte byteData[] = sh.digest();
+      StringBuffer sb = new StringBuffer();
+      for (int i = 0; i < byteData.length; i++) {
+        sb.append(Integer.toString(byteData[i] & 0xff + 0x100, 16).substring(1));
+      }
+      result = sb.toString();
+    } catch(NoSuchAlgorithmException e) {
+      e.printStackTrace();
+      result = null;
+    }
+
+    return result;
+  }
 
 }
