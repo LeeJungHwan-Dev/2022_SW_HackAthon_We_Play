@@ -110,17 +110,17 @@ public class SignInActivity extends AppCompatActivity {
 
       @Override
       public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+      }
+
+      @Override
+      public void afterTextChanged(Editable editable) {
         if(Pass.getText().toString().equals(PassCheck.getText().toString())){
           setImage.setImageResource(R.drawable.check);
           button.setEnabled(true);
         } else {
           setImage.setImageResource(R.drawable.xxx);
         }
-      }
-
-      @Override
-      public void afterTextChanged(Editable editable) {
-
       }
     });
 

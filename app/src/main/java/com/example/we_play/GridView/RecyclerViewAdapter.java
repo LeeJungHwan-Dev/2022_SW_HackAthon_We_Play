@@ -19,7 +19,6 @@ import com.bumptech.glide.Glide;
 import com.example.we_play.Info_page;
 import com.example.we_play.R;
 import com.willy.ratingbar.BaseRatingBar;
-import com.willy.ratingbar.ScaleRatingBar;
 
 import java.util.ArrayList;
 
@@ -100,8 +99,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         ImageView food_image;
         TextView food_title, food_location;
         ImageButton food_info_btn;
-
-
 
 
         ViewHolder(View itemView) {

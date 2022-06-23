@@ -1,4 +1,4 @@
-package com.example.we_play.Recyclerview;
+package com.example.we_play.TickerView;
 
 public class TicketData {
     private String thumbnail;
