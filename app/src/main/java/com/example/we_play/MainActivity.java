@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), Main_page.class);
                 startActivity(intent);
             }
-        };
+        });
         /*
         TimerTask timerTask = new TimerTask() {
             @Override
