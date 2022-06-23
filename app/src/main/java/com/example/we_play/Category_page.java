@@ -18,6 +18,7 @@ public class Category_page extends AppCompatActivity {
     TextView citiy_title;
     GridView category_view;
     ImageButton back_city;
+    ImageButton set;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,17 @@ public class Category_page extends AppCompatActivity {
         citiy_title = findViewById(R.id.citiy_title);
         category_view = findViewById(R.id.category_grid);
         back_city = findViewById(R.id.button4);
+        set = findViewById(R.id.my_setting_btn);
+
+        set.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),infoActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
         getCityData();
 
@@ -51,7 +63,6 @@ public class Category_page extends AppCompatActivity {
             }
         });
 
-
         back_city.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +71,6 @@ public class Category_page extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 
     public void getCityData(){
