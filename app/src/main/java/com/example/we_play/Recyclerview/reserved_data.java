@@ -1,37 +1,67 @@
 package com.example.we_play.Recyclerview;
 
 public class reserved_data {
-    private String thumbnail;
-    private String placeName;
-    private String description;
+    private String thumbnail_url;
+    private String place;
+    private String location;
+    private String ticket_date;
+    private String ticket_participant;
+    private String ticket_price;
 
-    public reserved_data(String thumbnail, String placeName, String description) {
-        this.thumbnail = thumbnail;
-        this.placeName = placeName;
-        this.description = description;
+    public reserved_data(String thumbnail_url, String place, String location, String ticket_date, String ticket_participant, String ticket_price) {
+        this.thumbnail_url = thumbnail_url;
+        this.place = place;
+        this.location = location;
+        this.ticket_date = ticket_date;
+        this.ticket_participant = ticket_participant;
+        this.ticket_price = ticket_price;
     }
 
-    public String getThumbnail() {
-        return thumbnail;
+    public String getThumbnail_url() {
+        return thumbnail_url;
     }
 
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
+    public void setThumbnail_url(String thumbnail_url) {
+        this.thumbnail_url = thumbnail_url;
     }
 
-    public String getPlaceName() {
-        return placeName;
+    public String getPlace() {
+        return place;
     }
 
-    public void setPlaceName(String placeName) {
-        this.placeName = placeName;
+    public void setPlace(String place) {
+        this.place = place;
     }
 
-    public String getDescription() {
-        return description;
+    public String getLocation() {
+        return location;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getTicket_date() {
+        return ticket_date;
+    }
+
+    public void setTicket_date(String ticket_date) {
+        this.ticket_date = ticket_date;
+    }
+
+    public String getTicket_participant() {
+        return ticket_participant;
+    }
+
+    public void setTicket_participant(String ticket_participant) {
+        this.ticket_participant = ticket_participant;
+    }
+
+    public String getTicket_price() {
+        return ticket_price;
+    }
+
+    public void setTicket_price(String ticket_price) {
+        this.ticket_price = ticket_price;
     }
 }

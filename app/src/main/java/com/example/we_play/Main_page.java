@@ -75,5 +75,4 @@ public class Main_page extends AppCompatActivity {
         city_adapter.notifyDataSetChanged(); // 데이터 변경을 암시 하고 아래 코드로 어댑터 재설정
         city_chose.setAdapter(city_adapter);
     }
-
 }

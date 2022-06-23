@@ -77,8 +77,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView food_title, food_location;
 
 
-
-
         ViewHolder(View itemView) {
             super(itemView);
 

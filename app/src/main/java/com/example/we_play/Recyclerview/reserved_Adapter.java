@@ -1,12 +1,10 @@
 package com.example.we_play.Recyclerview;
 
-import android.content.Context;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,16 +20,20 @@ public class reserved_Adapter extends RecyclerView.Adapter<reserved_Adapter.Cust
     private ArrayList<Dictionary> mList;
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
-        protected ImageView thumbnail;
-        protected TextView placeName;
-        protected TextView description;
-
+        protected ImageView thumbnail_url;
+        protected TextView place;
+        protected TextView location;
+        protected TextView ticket_date;
+        protected TextView ticket_participant;
+        protected TextView ticket_price;
 
         public CustomViewHolder(View view) {
             super(view);
-            this.thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
-            this.placeName = (TextView) view.findViewById(R.id.placeName);
-            this.description = (TextView) view.findViewById(R.id.placeDescription);
+            this.thumbnail_url = (ImageView) view.findViewById(R.id.thumbnail);
+            this.place = (TextView) view.findViewById(R.id.tv_placeName);
+            this.location = (TextView) view.findViewById(R.id.tv_placeLocation);
+            this.ticket_date = (TextView) view.findViewById(R.id.tv_ticketDate);
+            this.ticket_participant = (TextView) view.findViewById(R.id.tv_TicketPrice);
         }
     }
 
@@ -55,18 +57,6 @@ public class reserved_Adapter extends RecyclerView.Adapter<reserved_Adapter.Cust
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder viewholder, int position) {
 
-//        viewholder.thumbnail.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
-        viewholder.placeName.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
-        viewholder.description.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
-
-        viewholder.placeName.setGravity(Gravity.CENTER);
-        viewholder.description.setGravity(Gravity.CENTER);
-
-
-
-//        viewholder.id.setText(mList.get(position).getId());
-//        viewholder.placeName.setText(mList.get(position).getKorean());
-//        viewholder.description.setText(mList.get(position).getKorean());
     }
 
     @Override

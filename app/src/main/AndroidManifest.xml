@@ -16,7 +16,7 @@
         android:theme="@style/Theme.We_play"
         tools:targetApi="32">
 
-        <activity android:name=".imformation"
+        <activity android:name=".information"
             android:exported="false"/>
 
         <activity
