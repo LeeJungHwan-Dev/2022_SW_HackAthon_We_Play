@@ -1,41 +1,43 @@
 package com.example.we_play;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.we_play.ListView.reserved_Adapter;
-import com.example.we_play.ListView.reserved_data;
+import com.example.we_play.Recyclerview.reserved_Adapter;
+import com.example.we_play.Recyclerview.reserved_data;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
 
 public class Reserved_page extends AppCompatActivity {
+    private ArrayList<Dictionary> mArrayList;
+    private reserved_Adapter mAdapter;
+    private int count = -1;
 
-    ArrayList<reserved_data> reservedList;
+    Button btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_reserved);
 
-        this.InitializeMovieData();
-        ListView listview = (ListView)findViewById(R.id.listview_reserved) ;
-        final reserved_Adapter ListviewAdapter = new reserved_Adapter(this,reservedList);
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_reserved_list);
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLinearLayoutManager);
 
-        listview.setAdapter(ListviewAdapter);
+        mArrayList = new ArrayList<>();
 
-        // 코드 계속...
-    }
+        mAdapter = new reserved_Adapter(mArrayList);
+        mRecyclerView.setAdapter(mAdapter);
 
-    public void InitializeMovieData()
-    {
-        reservedList = new ArrayList<reserved_data>();
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(), mLinearLayoutManager.getOrientation());
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
 
-        reservedList.add(new reserved_data(R.drawable.logo, "미션임파서블","15세 이상관람가"));
-        reservedList.add(new reserved_data(R.drawable.logo, "아저씨","19세 이상관람가"));
-        reservedList.add(new reserved_data(R.drawable.logo, "어벤져스","12세 이상관람가"));
     }
 }
