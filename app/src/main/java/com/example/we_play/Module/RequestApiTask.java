@@ -9,7 +9,8 @@ import com.nhn.android.naverlogin.OAuthLogin;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public static class RequestApiTask extends AsyncTask<Void, Void, String> {
+public class RequestApiTask extends AsyncTask<Void, Void, String> {
+
     private final Context mContext;
     private final OAuthLogin mOAuthLoginModule;
     public RequestApiTask(Context mContext, OAuthLogin mOAuthLoginModule) {

@@ -17,16 +17,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(), Main_page.class);
+                Intent intent = new Intent(getApplicationContext(), loginActivity.class);
                 startActivity(intent);
             }
         };
+
         Timer timer = new Timer();
         timer.schedule(timerTask, 1500);
 
     }
+
 }
