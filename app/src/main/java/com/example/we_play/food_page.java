@@ -67,7 +67,7 @@ public class food_page extends AppCompatActivity {
         }).addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(img_link,title,location,getApplicationContext(),rating);
+                RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(img_link,title,location,getApplicationContext(),rating,big_city,"로컬 맛집");
                 foodview.setAdapter(mAdapter);
                 foodview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 mAdapter.notifyDataSetChanged();

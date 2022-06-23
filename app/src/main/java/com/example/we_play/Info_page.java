@@ -42,6 +42,7 @@ public class Info_page extends AppCompatActivity {
         back = findViewById(R.id.back_category_list);
         buy = findViewById(R.id.buy);
 
+        getdate();
         setinfo();
         title_img.setClipToOutline(true);
 
@@ -75,26 +76,51 @@ public class Info_page extends AppCompatActivity {
     }
 
     public void setinfo(){
-        Intent intent = getIntent();
-        big_city = intent.getStringExtra("지역");
-        category = intent.getStringExtra("카테고리");
-        pic_link = intent.getStringExtra("사진");
-        title = intent.getStringExtra("제목");
-        location = intent.getStringExtra("위치");
+        try {
+            Intent intent = getIntent();
+            big_city = intent.getStringExtra("지역");
+            category = intent.getStringExtra("카테고리");
+            pic_link = intent.getStringExtra("사진");
+            title = intent.getStringExtra("타이틀");
+            location = intent.getStringExtra("위치");
+        }catch (Exception e){}
     }
 
     public void getInfo(){
-       DocumentReference documentReference =  db.collection("관광정보").document(big_city).collection(category).document(title);
-        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                try {
-                    info_tv.setText(task.getResult().get("description").toString());
-                }catch (Exception e){
-                    info_tv.setText("보다 좋은 서비스를 위해 정보를 준비중 입니다.");
+
+        try {
+            DocumentReference documentReference =  db.collection("관광정보").document(big_city).collection(category).document(title);
+            documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    try {
+                        if(task.getResult().get("description").toString().length() <= 1){
+                            info_tv.setText("보다 좋은 서비스를 위해 정보를 준비중 입니다.");
+                        }
+                        info_tv.setText(task.getResult().get("description").toString());
+
+                    }catch (Exception e){
+                        info_tv.setText("보다 좋은 서비스를 위해 정보를 준비중 입니다.");
+
+                    }
                 }
-            }
-        });
+            });
+        }catch (Exception e){
+        }
+
+    }
+
+    public void getdate(){
+        try {
+            Intent intent = getIntent();
+            big_city = intent.getStringExtra("도시");
+            category = intent.getStringExtra("카테고리");
+            location = intent.getStringExtra("위치");
+            title = intent.getStringExtra("타이틀");
+            pic_link = intent.getStringExtra("사진");
+        }catch (Exception e){
+
+        }
     }
 
 }

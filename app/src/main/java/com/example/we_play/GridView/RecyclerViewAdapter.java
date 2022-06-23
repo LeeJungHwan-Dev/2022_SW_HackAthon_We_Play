@@ -1,6 +1,7 @@
 package com.example.we_play.GridView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.we_play.Info_page;
 import com.example.we_play.R;
 import com.willy.ratingbar.BaseRatingBar;
 import com.willy.ratingbar.ScaleRatingBar;
@@ -28,14 +30,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     ArrayList<String> title = new ArrayList<>();
     ArrayList<String> location = new ArrayList<>();
     ArrayList<String> rating = new ArrayList<>();
+    String big_city = "";
+    String category = "";
 
 
-    public RecyclerViewAdapter(ArrayList<String> img_link , ArrayList<String> title, ArrayList<String> location, Context context, ArrayList<String> rating){
+    public RecyclerViewAdapter(ArrayList<String> img_link , ArrayList<String> title, ArrayList<String> location, Context context, ArrayList<String> rating,String big_city , String category){
         this.img_link = img_link;
         this.title = title;
         this.location = location;
         this.context = context;
         this.rating = rating;
+        this.big_city = big_city;
+        this.category = category;
     }
 
     @NonNull
@@ -71,7 +77,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.food_info_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"cliked!",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, Info_page.class);
+                intent.putExtra("시티",big_city);
+                intent.putExtra("카테고리",category);
+                intent.putExtra("위치",location.get(position));
+                intent.putExtra("사진",img_link.get(position));
+                intent.putExtra("타이틀",title.get(position));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
             }
         });
 

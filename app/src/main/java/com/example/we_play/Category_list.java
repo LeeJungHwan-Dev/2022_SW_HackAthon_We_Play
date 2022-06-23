@@ -134,6 +134,7 @@ public class Category_list extends AppCompatActivity {
         intent.putExtra("위치",location.get(pos));
         intent.putExtra("사진",pic_link.get(pos));
         intent.putExtra("제목",str);
+        intent.putExtra("타이틀",str);
         startActivity(intent);
     }
 
