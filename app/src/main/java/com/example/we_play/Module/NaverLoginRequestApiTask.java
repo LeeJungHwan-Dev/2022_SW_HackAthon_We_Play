@@ -63,7 +63,6 @@ public class NaverLoginRequestApiTask extends AsyncTask<Void, Void, String> {
                 user.put("ID", "");
                 user.put("Password", "");
 
-                Toast.makeText(mContext, "name : " + name + " email : " + email + " mobile : " + mobile, Toast.LENGTH_SHORT).show();
 
                 String hashed_id = hashing(email);
 

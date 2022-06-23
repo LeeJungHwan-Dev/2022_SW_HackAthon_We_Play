@@ -18,7 +18,6 @@ public class TicketActivity extends AppCompatActivity {
     private TicketAdapter mAdapter;
     private int count = -1;
 
-    Button btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

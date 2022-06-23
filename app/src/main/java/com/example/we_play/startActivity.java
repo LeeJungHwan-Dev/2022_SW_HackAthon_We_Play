@@ -32,8 +32,6 @@ public class startActivity extends AppCompatActivity {
             } else {
                 String errorCode = NaverOAuthLoginModule.getLastErrorCode(getApplicationContext()).getCode();
                 String errorDesc = NaverOAuthLoginModule.getLastErrorDesc(getApplicationContext());
-                Toast.makeText(getApplicationContext(), "errorCode:" + errorCode
-                        + ", errorDesc:" + errorDesc, Toast.LENGTH_SHORT).show();
             }
         }
     };
