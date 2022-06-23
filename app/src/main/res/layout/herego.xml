@@ -62,9 +62,10 @@
 
             <TextView
                 android:id="@+id/name1"
-                android:layout_width="115dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="_________________"/>
+                android:hint="_________________"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:layout_marginRight="2dp"
@@ -72,8 +73,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:fontFamily="@font/pretendard_bold"
+                android:textColor="@color/black"
                 android:text="님 여기로 놀러가볼래요?"
-                android:textColor="#AAAAAA"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -166,8 +167,9 @@
             <TextView
                 android:hint="_________________"
                 android:id="@+id/name2"
-                android:layout_width="115dp"
-                android:layout_height="wrap_content" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"/>
 
             <TextView
 
@@ -177,7 +179,7 @@
                 android:layout_gravity="right"
                 android:fontFamily="@font/pretendard_bold"
                 android:text="님의 티켓확인"
-                android:textColor="#AAAAAA"
+                android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
