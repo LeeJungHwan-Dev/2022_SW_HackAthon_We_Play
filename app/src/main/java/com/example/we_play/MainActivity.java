@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         /*
         TimerTask timerTask = new TimerTask() {
             @Override
@@ -47,12 +48,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         };
+
         Timer timer = new Timer();
         timer.schedule(timerTask, 1500);
         */
-
-        Intent intent = new Intent(getApplicationContext(), imformation.class);
-        startActivity(intent);
-
     }
+
 }

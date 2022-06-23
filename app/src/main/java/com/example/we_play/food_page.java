@@ -73,8 +73,6 @@ public class food_page extends AppCompatActivity {
                 mAdapter.notifyDataSetChanged();
             }
         });
-
-
     }
 
 
