@@ -54,6 +54,7 @@ public class RequestApiTask extends AsyncTask<Void, Void, String> {
                 email = response.getString("email");
                 String mobile = response.getString("mobile");
 
+                user.put("Site", "naver");
                 user.put("Name", name);
                 user.put("PhoneNumber", mobile);
                 user.put("BirthDay", "");
