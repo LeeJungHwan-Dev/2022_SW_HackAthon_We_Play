@@ -87,23 +87,21 @@ public class imformation extends AppCompatActivity {
 
           two_id_check(Id.getText().toString());
 
+        if(check == false) {
+          button3.post(new Runnable(){
+            public void run(){
+              button3.setText("확인완료");
+            }
+          });
+          button3.setEnabled(false);
+
+
+
+      }}});
 
 
 
 
-      }});
-
-
-
-
-   /* if(value!=null){
-
-      //Id.setBackgroundResource(R.drawable.red_edittext);  // 적색 테두리 적용
-    }
-    else{
-      button3.setText("확인 완료");
-    }
-  }*/
 
 
     PassCheck.addTextChangedListener(new TextWatcher() {
@@ -143,9 +141,7 @@ public class imformation extends AppCompatActivity {
 
           two_id_check(getId);
 
-          if(check == false) {
-            button3.setText("확인 완료");
-            button3.setEnabled(false);
+        if(check == false) {
               Map<String, Object> user = new HashMap<>();
 
               user.put("Name", getName);
@@ -172,15 +168,15 @@ public class imformation extends AppCompatActivity {
                               Log.w(TAG, "Error writing document", e);
                           }
                       });
-          }else{
+         }else{
+            Id.setText(null);
             Id.setBackgroundResource(R.drawable.red_edittext);
-              Toast.makeText(getApplicationContext(),"중복된 아이디가 존재합니다",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"중복된 아이디가 존재합니다",Toast.LENGTH_SHORT).show();
+     }
+   }
+  });
 
-          }
-        }
-      });
-
-  }
+}
 
 
   public void two_id_check(String id){
