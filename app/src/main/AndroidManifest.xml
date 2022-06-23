@@ -18,6 +18,24 @@
         android:theme="@style/Theme.We_play"
         tools:targetApi="32">
         <activity
+            android:name=".info_delete_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".info_Service_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".info_Set_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".info_payment_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".info_journal_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".info_Edit_Activity"
+            android:exported="false" />
+        <activity
             android:name=".buy_ticket_page"
             android:exported="false" />
         <activity
