@@ -94,7 +94,7 @@ public class TravelActivity extends AppCompatActivity {
             try {
                 FileOutputStream fo = openFileOutput(filename, Context.MODE_PRIVATE);
                 DataOutputStream dos = new DataOutputStream(fo);
-                dos.write(date.getBytes());
+                dos.writeUTF(date);
                 dos.flush();
                 dos.close();
             } catch (FileNotFoundException e) {
