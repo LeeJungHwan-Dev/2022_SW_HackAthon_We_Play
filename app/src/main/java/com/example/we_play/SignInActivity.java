@@ -160,7 +160,7 @@ public class SignInActivity extends AppCompatActivity {
               @Override
               public void onSuccess(Void aVoid) {
                 Log.d(TAG, "DocumentSnapshot successfully written!");
-                Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
+                Intent intent = new Intent(getApplicationContext(), HomePage.class);
                 intent.putExtra("아이디", hashedId);
                 intent.putExtra("이름", getName);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.we_play.HomePage;
 import com.example.we_play.TravelActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -71,7 +72,7 @@ public class NaverLoginRequestApiTask extends AsyncTask<Void, Void, String> {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Log.d(TAG, "DocumentSnapshot successfully written!");
-                                Intent intent = new Intent(mContext, TravelActivity.class);
+                                Intent intent = new Intent(mContext, HomePage.class);
                                 intent.putExtra("아이디", hashed_id);
                                 intent.putExtra("이름", name);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

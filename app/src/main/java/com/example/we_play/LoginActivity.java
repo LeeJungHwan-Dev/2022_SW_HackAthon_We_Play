@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         for(DocumentSnapshot documentSnapshot : task.getResult()){
                             if(hashedId.equals(documentSnapshot.getId()) && hashedPW.equals(documentSnapshot.get("Password"))){
-                                Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), HomePage.class);
                                 intent.putExtra("아아디", hashedId);
                                 intent.putExtra("이름", documentSnapshot.get("Name").toString());
                                 startActivity(intent);
