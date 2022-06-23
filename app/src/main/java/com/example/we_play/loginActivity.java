@@ -43,10 +43,10 @@ public class loginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btn_naverLogin = findViewById(R.id.n);
-        btn_homeLogin = findViewById(R.id.h);
-        btn_googleLogin = findViewById(R.id.g);
-        btn_go_main = findViewById(R.id.button5);
+        btn_naverLogin = findViewById(R.id.btn_naverLogin);
+        btn_homeLogin = findViewById(R.id.btn_homeLogin);
+        btn_googleLogin = findViewById(R.id.btn_googleLogin);
+        btn_go_main = findViewById(R.id.btn_goto_main);
 
 
         NaverOAuthLoginModule.init(

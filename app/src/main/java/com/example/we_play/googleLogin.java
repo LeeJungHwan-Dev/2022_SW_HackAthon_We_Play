@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -26,6 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class googleLogin  extends AppCompatActivity {
+    private static final int RC_SIGN_IN = 9001;
     GoogleSignInOptions gso;
     GoogleSignInClient mGoogleSignInClient;
 
@@ -34,83 +36,36 @@ public class googleLogin  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_login);
 
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
-                .requestProfile()
                 .build();
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         signIn();
+
     }
 
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.g:
-                signIn();
-                break;
-        }
-    }
-
-    private void signIn() {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivity(signInIntent);
+    private void signIn(){
+        Intent sigInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivityForResult(sigInIntent, RC_SIGN_IN);
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-        handleSignInResult(task);
-    }
+        Log.d("값", String.valueOf(requestCode));
 
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Map<String, Object> user = new HashMap<>();
+        if(requestCode == RC_SIGN_IN){
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
 
-        try {
-            GoogleSignInAccount acct = completedTask.getResult(ApiException.class);
+            try {
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                String authCode = account.getServerAuthCode();
 
-            if (acct != null) {
-                String personName = acct.getDisplayName();
-                String personGivenName = acct.getGivenName();
-                String personFamilyName = acct.getFamilyName();
-                String personEmail = acct.getEmail();
-                String personId = acct.getId();
-                Uri personPhoto = acct.getPhotoUrl();
+                Log.d("Google","DisplayName" + account.getDisplayName());
 
-                Log.d(TAG, "handleSignInResult:personName "+personName);
-                Log.d(TAG, "handleSignInResult:personGivenName "+personGivenName);
-                Log.d(TAG, "handleSignInResult:personEmail "+personEmail);
-                Log.d(TAG, "handleSignInResult:personId "+personId);
-                Log.d(TAG, "handleSignInResult:personFamilyName "+personFamilyName);
-                Log.d(TAG, "handleSignInResult:personPhoto "+personPhoto);
-
-                user.put("Site", "Google");
-                user.put("Name", personName);
-                user.put("PhoneNumber", "");
-                user.put("BirthDay", "");
-                user.put("ID", "");
-                user.put("Password", "");
-
-                db.collection("회원정보").document(personEmail).set(user)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Log.d(TAG, "DocumentSnapshot successfully written!");
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Log.w(TAG, "Error writing document", e);
-                            }
-                        });
-
-            }
-        } catch (ApiException e) {
-            Log.e(TAG, "signInResult:failed code=" + e.getStatusCode());
-
+            }catch (Exception e){}
         }
     }
 }
