@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,9 +18,9 @@ import com.example.we_play.GridView.city_Adapter;
 public class Category_page extends AppCompatActivity {
 
     String big_city = "";
-    String small_city = "";
     TextView citiy_title;
     GridView category_view;
+    ImageButton back_city;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +29,11 @@ public class Category_page extends AppCompatActivity {
 
         citiy_title = findViewById(R.id.citiy_title);
         category_view = findViewById(R.id.category_grid);
+        back_city = findViewById(R.id.button4);
 
         getCityData();
 
-        citiy_title.setText(big_city + " " + small_city);
+        citiy_title.setText(big_city);
 
         category_Adapter category_adapter = new category_Adapter(this);
         category_view.setAdapter(category_adapter);
@@ -41,8 +44,17 @@ public class Category_page extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),Category_list.class);
                 intent.putExtra("지역",big_city);
                 intent.putExtra("카테고리",parent.getAdapter().getItem(position).toString());
-                intent.putExtra("작은지역",small_city);
                 startActivity(intent);
+            }
+        });
+
+
+        back_city.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Main_page.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -51,7 +63,6 @@ public class Category_page extends AppCompatActivity {
     public void getCityData(){
         Intent intent = getIntent();
         big_city = intent.getStringExtra("big_city");
-        small_city = intent.getStringExtra("small_city");
     }
 
 }

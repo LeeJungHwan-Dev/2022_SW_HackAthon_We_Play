@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -27,10 +28,10 @@ public class Category_list extends AppCompatActivity {
 
     String big_city = "";
     String category = "";
-    String small_city = "";
     ArrayList<String> title = new ArrayList<>();
     ArrayList<String> pic_link = new ArrayList<>();
     ArrayList<String> location = new ArrayList<>();
+
     TextView location_title;
     GridView gridView;
     ImageButton return_category;
@@ -46,7 +47,7 @@ public class Category_list extends AppCompatActivity {
 
         getdata();
 
-        location_title.setText(big_city + " " + small_city);
+        location_title.setText(big_city);
 
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -74,8 +75,6 @@ public class Category_list extends AppCompatActivity {
 
                     }
 
-
-
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -98,8 +97,15 @@ public class Category_list extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),Category_page.class);
                 intent.putExtra("big_city",big_city);
-                intent.putExtra("small_city",small_city);
                 startActivity(intent);
+            }
+        });
+
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                   go_info(parent.getAdapter().getItem(position).toString(),position);
             }
         });
 
@@ -111,6 +117,16 @@ public class Category_list extends AppCompatActivity {
         Intent intent = getIntent();
         big_city = intent.getStringExtra("지역");
         category = intent.getStringExtra("카테고리");
-        small_city = intent.getStringExtra("작은지역");
     }
+
+    public void go_info(String str,int pos){
+        Intent intent = new Intent(getApplicationContext(),Info_page.class);
+        intent.putExtra("지역",big_city);
+        intent.putExtra("카테고리",category);
+        intent.putExtra("사진",pic_link.get(pos));
+        intent.putExtra("제목",str);
+        startActivity(intent);
+    }
+
+
 }
