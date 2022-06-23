@@ -21,6 +21,9 @@
             android:name=".buy_ticket_page"
             android:exported="false" />
         <activity
+            android:name=".infoActivity"
+            android:exported="false" />
+        <activity
             android:name=".googleLogin"
             android:exported="false" />
         <activity

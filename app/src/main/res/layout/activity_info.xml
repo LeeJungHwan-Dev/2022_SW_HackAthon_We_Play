@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".infoActivity">
+
+    <ImageView
+        android:id="@+id/backBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/next"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="104dp"
+        android:layout_height="103dp"
+        app:srcCompat="@drawable/ic_baseline_account_circle_24"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="77dp" />
+
+    <TextView
+        android:id="@+id/emailView"
+        android:layout_width="170dp"
+        android:layout_height="22dp"
+        android:text="ealrybird2022@email.com"
+        android:textColor="@color/gray_21"
+        tools:layout_editor_absoluteX="143dp"
+        tools:layout_editor_absoluteY="139dp" />
+
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이정환님! 좋은 하루 되세요"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="143dp"
+        tools:layout_editor_absoluteY="112dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="369dp"
+        android:layout_height="480dp"
+        android:background="@drawable/shape"
+        android:backgroundTint="#A0D6F1"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="198dp" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="87dp"
+        android:layout_height="35dp"
+        android:background="@android:color/transparent"
+        android:text="회원 탈퇴"
+        android:textColor="#7C6E6E"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="680dp" />
+
+    <Button
+        android:id="@+id/infoEdit"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:background="@drawable/shape"
+        android:text="내 정보 수정"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="222dp" />
+
+    <Button
+        android:id="@+id/service"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:background="@drawable/shape"
+        android:includeFontPadding="false"
+        android:text="고객센터"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="581dp" />
+
+    <Button
+        android:id="@+id/payment"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:background="@drawable/shape"
+        android:text="결제 수단"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="402dp" />
+
+    <Button
+        android:id="@+id/set"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:background="@drawable/shape"
+        android:includeFontPadding="false"
+        android:text="설정"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="493dp" />
+
+    <Button
+        android:id="@+id/journal"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:background="@drawable/shape"
+        android:text="내 여행기록"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="312dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
