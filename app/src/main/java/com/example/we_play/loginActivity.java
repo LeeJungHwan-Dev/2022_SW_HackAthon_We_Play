@@ -7,30 +7,31 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import com.example.we_play.Module.RequestApiTask;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 
 public class loginActivity extends AppCompatActivity {
 
     OAuthLogin mOAuthLoginModule = OAuthLogin.getInstance();
-    Button btn1, btn2, btn3;
+    ImageButton btn1, btn2, btn3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btn1 = findViewById(R.id.naloginbtn);
-        btn2 = findViewById(R.id.ggloginbtn);
-        btn3 = findViewById(R.id.hmloginbtn);
-
+        btn1 = findViewById(R.id.n);
+        btn2 = findViewById(R.id.h);
+        btn3 = findViewById(R.id.g);
 
         mOAuthLoginModule.init(
                 loginActivity.this
                 ,getString(R.string.naver_client_id)
                 ,getString(R.string.naver_client_secret)
                 ,getString(R.string.app_name)
-
         );
 
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +41,10 @@ public class loginActivity extends AppCompatActivity {
             }
         });
 
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { googleLogin(); }
+        });
 
 
 
@@ -65,5 +70,10 @@ public class loginActivity extends AppCompatActivity {
 
     private void naverLogin() {
         mOAuthLoginModule.startOauthLoginActivity(this, mOAuthLoginHandler);
+    }
+
+    private void googleLogin() {
+
+
     }
 }
