@@ -131,6 +131,7 @@ public class Category_list extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),Info_page.class);
         intent.putExtra("지역",big_city);
         intent.putExtra("카테고리",category);
+        intent.putExtra("위치",location.get(pos));
         intent.putExtra("사진",pic_link.get(pos));
         intent.putExtra("제목",str);
         startActivity(intent);

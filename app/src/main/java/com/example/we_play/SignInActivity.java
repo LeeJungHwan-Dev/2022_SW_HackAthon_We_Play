@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,10 +33,11 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class signInActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
 
   EditText Name, Number, Year, Month, Day, Id, Pass, PassCheck;
-  Button button,button3;
+  Button button3;
+  ImageButton button;
   ImageView setImage;
   TextView tv_error_email;
   Boolean check;
@@ -54,7 +56,7 @@ public class signInActivity extends AppCompatActivity {
     Id=(EditText)findViewById(R.id.EditId); // id
     Pass=(EditText)findViewById(R.id.EditPass);
     PassCheck=(EditText)findViewById(R.id.EditPassCheck);
-    button=findViewById(R.id.button1);
+    button= (ImageButton) findViewById(R.id.button1);
     setImage = (ImageView)findViewById(R.id.setImage);
     button3=findViewById(R.id.button3);
     tv_error_email=findViewById(R.id.tv_error_email);
@@ -158,8 +160,8 @@ public class signInActivity extends AppCompatActivity {
               @Override
               public void onSuccess(Void aVoid) {
                 Log.d(TAG, "DocumentSnapshot successfully written!");
-                Intent intent = new Intent(getApplicationContext(), Main_page.class);
-                intent.putExtra("ID", hashedId);
+                Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
+                intent.putExtra("아이디", hashedId);
                 intent.putExtra("이름", getName);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);

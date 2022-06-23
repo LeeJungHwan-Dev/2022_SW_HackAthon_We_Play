@@ -14,12 +14,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.We_play"
-        tools:targetApi="32" >
+        tools:targetApi="32">
         <activity
-            android:name=".googleLogin"
+            android:name=".info_delete_Activity"
             android:exported="false" />
         <activity
-            android:name=".signInActivity"
+            android:name=".info_Service_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".info_Set_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".info_payment_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".info_journal_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".info_Edit_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".buy_ticket_page"
+            android:exported="false" />
+        <activity
+            android:name=".infoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".googleLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".food_page"
@@ -28,7 +55,7 @@
             android:name="com.nhn.android.naverlogin.ui.OAuthCustomTabActivity"
             android:exported="true" />
         <activity
-            android:name=".loginActivity"
+            android:name=".startActivity"
             android:exported="false" />
         <activity
             android:name=".Info_page"
@@ -40,14 +67,14 @@
             android:name=".Category_page"
             android:exported="false" />
         <activity
-            android:name=".Main_page"
+            android:name=".TravelActivity"
             android:exported="false" />
         <activity
-            android:name=".Reserved_page"
+            android:name=".TicketActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

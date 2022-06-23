@@ -23,9 +23,10 @@ public class Info_page extends AppCompatActivity {
     String big_city = "";
     String category = "";
     String pic_link = "";
+    String location = "";
     String title = "";
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    ImageButton back;
+    ImageButton back,buy;
     ImageView title_img;
     TextView title_tv , info_tv;
 
@@ -39,8 +40,11 @@ public class Info_page extends AppCompatActivity {
         title_tv = findViewById(R.id.title);
         info_tv = findViewById(R.id.info_text);
         back = findViewById(R.id.back_category_list);
+        buy = findViewById(R.id.buy);
 
         setinfo();
+        title_img.setClipToOutline(true);
+
 
         Glide.with(this).load(pic_link).into(title_img);
         title_tv.setText(title);
@@ -53,13 +57,22 @@ public class Info_page extends AppCompatActivity {
             }
         });
 
+        buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),buy_ticket_page.class);
+                intent.putExtra("제목",title);
+                intent.putExtra("사진",pic_link);
+                intent.putExtra("장소",location);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+                finish();
+            }
+        });
+
 
 
     }
-
-
-
-
 
     public void setinfo(){
         Intent intent = getIntent();
@@ -67,6 +80,7 @@ public class Info_page extends AppCompatActivity {
         category = intent.getStringExtra("카테고리");
         pic_link = intent.getStringExtra("사진");
         title = intent.getStringExtra("제목");
+        location = intent.getStringExtra("위치");
     }
 
     public void getInfo(){
@@ -77,7 +91,7 @@ public class Info_page extends AppCompatActivity {
                 try {
                     info_tv.setText(task.getResult().get("description").toString());
                 }catch (Exception e){
-                    info_tv.setText("관련된 소개 내용이 없습니다 ㅠㅠ");
+                    info_tv.setText("보다 좋은 서비스를 위해 정보를 준비중 입니다.");
                 }
             }
         });

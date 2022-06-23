@@ -6,14 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.we_play.GridView.category_Adapter;
-import com.example.we_play.GridView.city_Adapter;
 
 public class Category_page extends AppCompatActivity {
 
@@ -21,6 +18,7 @@ public class Category_page extends AppCompatActivity {
     TextView citiy_title;
     GridView category_view;
     ImageButton back_city;
+    ImageButton set;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +28,17 @@ public class Category_page extends AppCompatActivity {
         citiy_title = findViewById(R.id.citiy_title);
         category_view = findViewById(R.id.category_grid);
         back_city = findViewById(R.id.button4);
+        set = findViewById(R.id.my_setting_btn);
+
+        set.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),infoActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
         getCityData();
 
@@ -54,16 +63,14 @@ public class Category_page extends AppCompatActivity {
             }
         });
 
-
         back_city.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),Main_page.class);
+                Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
-
     }
 
     public void getCityData(){
