@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">we_play</string>
+
+    <string name="naver_client_id">dzRvHuT6pT4bNYVLdqMl</string>
+    <string name="naver_client_secret">xvgKE7nMQx</string>
+    <string name="social_login_info_naver_client_name">함께놀자</string>
 </resources>
