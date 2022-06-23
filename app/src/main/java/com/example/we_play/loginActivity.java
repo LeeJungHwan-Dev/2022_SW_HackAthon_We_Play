@@ -18,8 +18,8 @@ import com.nhn.android.naverlogin.OAuthLoginHandler;
 
 public class loginActivity extends AppCompatActivity {
 
-    OAuthLogin mOAuthLoginModule = OAuthLogin.getInstance();
-    ImageButton btn1, btn2, btn3;
+   /* OAuthLogin mOAuthLoginModule = OAuthLogin.getInstance();
+    ImageButton btn1, btn2, btn3;*/
     Button go_main;
 
     @Override
@@ -27,7 +27,7 @@ public class loginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btn1 = findViewById(R.id.n);
+     /*   btn1 = findViewById(R.id.n);
         btn2 = findViewById(R.id.h);
         btn3 = findViewById(R.id.g);
         go_main = findViewById(R.id.button5);
@@ -101,5 +101,5 @@ public class loginActivity extends AppCompatActivity {
     private void googleLogin() {
 
 
-    }
-}
+    }*/
+}}

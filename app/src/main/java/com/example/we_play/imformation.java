@@ -144,6 +144,8 @@ public class imformation extends AppCompatActivity {
           two_id_check(getId);
 
           if(check == false) {
+            button3.setText("확인 완료");
+            button3.setEnabled(false);
               Map<String, Object> user = new HashMap<>();
 
               user.put("Name", getName);
@@ -171,7 +173,9 @@ public class imformation extends AppCompatActivity {
                           }
                       });
           }else{
+            Id.setBackgroundResource(R.drawable.red_edittext);
               Toast.makeText(getApplicationContext(),"중복된 아이디가 존재합니다",Toast.LENGTH_SHORT).show();
+
           }
         }
       });
