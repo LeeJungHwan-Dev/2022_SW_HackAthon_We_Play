@@ -24,7 +24,7 @@
             android:name=".SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeLoginActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".food_page"
