@@ -16,7 +16,7 @@ import com.nhn.android.naverlogin.OAuthLoginHandler;
 public class loginActivity extends AppCompatActivity {
 
     OAuthLogin mOAuthLoginModule = OAuthLogin.getInstance();
-    ImageButton btn1, btn2;
+    ImageButton btn1, btn2 , btn3;
     Button go_main;
 
     @Override
@@ -26,7 +26,9 @@ public class loginActivity extends AppCompatActivity {
 
         btn1 = findViewById(R.id.n);
         btn2 = findViewById(R.id.h);
+        btn3 = findViewById(R.id.g);
         go_main = findViewById(R.id.button5);
+
 
         mOAuthLoginModule.init(
                 loginActivity.this
@@ -56,6 +58,15 @@ public class loginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),Main_page.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),googleLogin.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.fadein,R.anim.fadeout);
             }

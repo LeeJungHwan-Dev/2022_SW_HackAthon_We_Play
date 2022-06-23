@@ -30,9 +30,10 @@ public class googleLogin  extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
     ImageButton btn3;
 
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_google_login);
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -41,7 +42,7 @@ public class googleLogin  extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        btn3 = findViewById(R.id.g);
+        signIn();
     }
 
     public void onClick(View v) {
@@ -54,6 +55,7 @@ public class googleLogin  extends AppCompatActivity {
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+        startActivity(signInIntent);
     }
 
     @Override
@@ -61,7 +63,7 @@ public class googleLogin  extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
         handleSignInResult(task);
-        }
+    }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -113,3 +115,4 @@ public class googleLogin  extends AppCompatActivity {
         }
     }
 }
+
