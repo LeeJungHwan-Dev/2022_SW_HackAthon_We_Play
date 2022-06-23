@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             data.put("아이디", dis.readUTF());
             dis.close();
             fi.close();
-            fi = openFileInput("id.txt");
+            fi = openFileInput("name.txt");
             dis = new DataInputStream(fi);
             data.put("이름", dis.readUTF());
             dis.close();
