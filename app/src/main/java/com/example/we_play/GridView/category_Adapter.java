@@ -54,6 +54,8 @@ public class category_Adapter extends BaseAdapter {
         category_title_tv.setText(name);
 
 
+
+
         return convertView;
     }
 

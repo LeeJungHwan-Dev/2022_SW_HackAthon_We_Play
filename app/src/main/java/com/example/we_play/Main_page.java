@@ -5,12 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.we_play.GridView.city_Adapter;
 import com.example.we_play.Module.location_return;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
+
+import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Main_page extends AppCompatActivity {
 
@@ -27,6 +35,8 @@ public class Main_page extends AppCompatActivity {
 
         city_chose = findViewById(R.id.city_chose);
         back = findViewById(R.id.main_page_back_btn);
+
+        Intent intent = getIntent();
 
 
         /**
@@ -56,9 +66,16 @@ public class Main_page extends AppCompatActivity {
             }
         });
 
+    try {
+        save("email.txt",intent.getStringExtra("이메일"));
+        save("mobile.txt",intent.getStringExtra("번호"));
+        save("name.txt",intent.getStringExtra("이름"));
+    }catch (Exception e){}
+
 
 
     }
+
 
 
     public void setLocation(String city){
@@ -75,5 +92,22 @@ public class Main_page extends AppCompatActivity {
         city_adapter.notifyDataSetChanged(); // 데이터 변경을 암시 하고 아래 코드로 어댑터 재설정
         city_chose.setAdapter(city_adapter);
     }
+
+    public void save(String filename,String date) {
+        if (date != null) {
+            try {
+                FileOutputStream fo = openFileOutput(filename, Context.MODE_PRIVATE);
+                DataOutputStream dos = new DataOutputStream(fo);
+                dos.write(date.getBytes());
+                dos.flush();
+                dos.close();
+            } catch (FileNotFoundException e) {
+
+            } catch (IOException e) {
+
+            }
+        }
+    }
+
 
 }
