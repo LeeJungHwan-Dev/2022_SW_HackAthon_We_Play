@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.we_play.GridView.RecyclerViewAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,15 +33,29 @@ public class food_page extends AppCompatActivity {
     ArrayList<String> title = new ArrayList<>();
     ArrayList<String> location = new ArrayList<>();
     ArrayList<String> rating = new ArrayList<>();
+    TextView textView;
+    ImageButton img_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_page);
 
+
         getdata();
 
+        textView = findViewById(R.id.title_food);
         foodview = findViewById(R.id.food_recycle);
+        img_btn = findViewById(R.id.img_btn);
+
+        textView.setText(big_city);
+
+        img_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         CollectionReference collectionReference = db.collection("관광정보").document(big_city).collection("로컬 맛집");
 

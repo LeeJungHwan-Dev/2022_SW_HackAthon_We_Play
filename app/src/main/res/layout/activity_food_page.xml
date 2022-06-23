@@ -8,19 +8,49 @@
     tools:context=".food_page">
 
 
+    <ImageButton
+        android:id="@+id/img_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/img_btn">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/food_recycle"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/title_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="지역이름"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.029"
+        app:layout_constraintStart_toEndOf="@+id/img_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.692" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
