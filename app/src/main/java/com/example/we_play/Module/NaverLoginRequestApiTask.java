@@ -24,11 +24,11 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RequestApiTask extends AsyncTask<Void, Void, String> {
+public class NaverLoginRequestApiTask extends AsyncTask<Void, Void, String> {
 
     private final Context mContext;
     private final OAuthLogin mOAuthLoginModule;
-    public RequestApiTask(Context mContext, OAuthLogin mOAuthLoginModule) {
+    public NaverLoginRequestApiTask(Context mContext, OAuthLogin mOAuthLoginModule) {
         this.mContext = mContext;
         this.mOAuthLoginModule = mOAuthLoginModule;
     }
@@ -73,9 +73,8 @@ public class RequestApiTask extends AsyncTask<Void, Void, String> {
                             public void onSuccess(Void aVoid) {
                                 Log.d(TAG, "DocumentSnapshot successfully written!");
                                 Intent intent = new Intent(mContext, TravelActivity.class);
-                                intent.putExtra("이메일", email);
+                                intent.putExtra("아이디", hashed_id);
                                 intent.putExtra("이름", name);
-                                intent.putExtra("번호", mobile);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 mContext.startActivity(intent);
                             }

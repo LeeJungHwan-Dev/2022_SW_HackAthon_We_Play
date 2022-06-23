@@ -66,14 +66,10 @@ public class TravelActivity extends AppCompatActivity {
             }
         });
 
-    try {
-        save("email.txt",intent.getStringExtra("이메일"));
-        save("mobile.txt",intent.getStringExtra("번호"));
-        save("name.txt",intent.getStringExtra("이름"));
-    }catch (Exception e){}
-
-
-
+        try {
+            save("id.txt",intent.getStringExtra("아이디"));
+            save("name.txt",intent.getStringExtra("이름"));
+        }catch (Exception e){}
     }
 
 

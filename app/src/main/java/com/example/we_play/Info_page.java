@@ -42,8 +42,6 @@ public class Info_page extends AppCompatActivity {
 
         setinfo();
 
-
-
         Glide.with(this).load(pic_link).into(title_img);
         title_tv.setText(title);
         getInfo();
@@ -54,14 +52,7 @@ public class Info_page extends AppCompatActivity {
                 finish();
             }
         });
-
-
-
     }
-
-
-
-
 
     public void setinfo(){
         Intent intent = getIntent();

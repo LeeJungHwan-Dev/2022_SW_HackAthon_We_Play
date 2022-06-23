@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 
-import com.example.we_play.Module.RequestApiTask;
+import com.example.we_play.Module.NaverLoginRequestApiTask;
 
 public class startActivity extends AppCompatActivity {
 
@@ -28,7 +28,7 @@ public class startActivity extends AppCompatActivity {
                 String refreshToken = NaverOAuthLoginModule.getRefreshToken(getApplicationContext());
                 long expiresAt = NaverOAuthLoginModule.getExpiresAt(getApplicationContext());
                 String tokenType = NaverOAuthLoginModule.getTokenType(getApplicationContext());
-                new RequestApiTask(getApplicationContext(), NaverOAuthLoginModule).execute();
+                new NaverLoginRequestApiTask(getApplicationContext(), NaverOAuthLoginModule).execute();
             } else {
                 String errorCode = NaverOAuthLoginModule.getLastErrorCode(getApplicationContext()).getCode();
                 String errorDesc = NaverOAuthLoginModule.getLastErrorDesc(getApplicationContext());
@@ -77,7 +77,7 @@ public class startActivity extends AppCompatActivity {
         btn_homeLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), HomeLoginActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.fadein,R.anim.fadeout);
                 finish();

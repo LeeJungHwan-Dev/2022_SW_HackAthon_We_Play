@@ -24,7 +24,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 
-public class HomeLoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     EditText email, pw;
     ImageButton btn_main;
@@ -74,7 +74,7 @@ public class HomeLoginActivity extends AppCompatActivity {
                         for(DocumentSnapshot documentSnapshot : task.getResult()){
                             if(hashedId.equals(documentSnapshot.getId()) && hashedPW.equals(documentSnapshot.get("Password"))){
                                 Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
-                                intent.putExtra("ID", hashedId);
+                                intent.putExtra("아아디", hashedId);
                                 intent.putExtra("이름", documentSnapshot.get("Name").toString());
                                 startActivity(intent);
                                 finish();

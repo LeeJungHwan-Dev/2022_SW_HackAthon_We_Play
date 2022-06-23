@@ -159,7 +159,7 @@ public class SignInActivity extends AppCompatActivity {
               public void onSuccess(Void aVoid) {
                 Log.d(TAG, "DocumentSnapshot successfully written!");
                 Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
-                intent.putExtra("ID", hashedId);
+                intent.putExtra("아이디", hashedId);
                 intent.putExtra("이름", getName);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
