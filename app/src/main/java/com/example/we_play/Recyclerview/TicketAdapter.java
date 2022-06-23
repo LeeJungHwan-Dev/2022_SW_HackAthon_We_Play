@@ -1,12 +1,10 @@
 package com.example.we_play.Recyclerview;
 
-import android.content.Context;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +16,7 @@ import java.util.Dictionary;
 
 import com.example.we_play.R;
 
-public class reserved_Adapter extends RecyclerView.Adapter<reserved_Adapter.CustomViewHolder> {
+public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.CustomViewHolder> {
     private ArrayList<Dictionary> mList;
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
@@ -36,7 +34,7 @@ public class reserved_Adapter extends RecyclerView.Adapter<reserved_Adapter.Cust
     }
 
 
-    public reserved_Adapter(ArrayList<Dictionary> list) {
+    public TicketAdapter(ArrayList<Dictionary> list) {
         this.mList = list;
     }
 

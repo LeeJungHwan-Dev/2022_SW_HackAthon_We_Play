@@ -20,7 +20,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class Main_page extends AppCompatActivity {
+public class TravelActivity extends AppCompatActivity {
 
 
     GridView city_chose; // 2 * 2로 리스트를 보여주기 위한 그리드 뷰

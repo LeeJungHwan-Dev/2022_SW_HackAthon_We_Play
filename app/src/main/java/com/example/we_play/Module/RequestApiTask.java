@@ -2,7 +2,6 @@ package com.example.we_play.Module;
 
 import static android.content.ContentValues.TAG;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -11,18 +10,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.example.we_play.Main_page;
+import com.example.we_play.TravelActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.nhn.android.naverlogin.OAuthLogin;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.DataOutputStream;
-import java.io.FileOutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
@@ -76,7 +72,7 @@ public class RequestApiTask extends AsyncTask<Void, Void, String> {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 Log.d(TAG, "DocumentSnapshot successfully written!");
-                                Intent intent = new Intent(mContext, Main_page.class);
+                                Intent intent = new Intent(mContext, TravelActivity.class);
                                 intent.putExtra("이메일", email);
                                 intent.putExtra("이름", name);
                                 intent.putExtra("번호", mobile);

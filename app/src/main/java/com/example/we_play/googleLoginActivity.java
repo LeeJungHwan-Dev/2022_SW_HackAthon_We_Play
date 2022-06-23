@@ -25,7 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class googleLogin  extends AppCompatActivity {
+public class googleLoginActivity extends AppCompatActivity {
     GoogleSignInOptions gso;
     GoogleSignInClient mGoogleSignInClient;
 
@@ -44,13 +44,13 @@ public class googleLogin  extends AppCompatActivity {
         signIn();
     }
 
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.g:
-                signIn();
-                break;
-        }
-    }
+//    public void onClick(View v) {
+//        switch (v.getId()) {
+//            case R.id.g:
+//                signIn();
+//                break;
+//        }
+//    }
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();

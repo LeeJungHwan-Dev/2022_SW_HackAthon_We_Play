@@ -32,7 +32,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class signInActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
 
   EditText Name, Number, Year, Month, Day, Id, Pass, PassCheck;
   Button button,button3;
@@ -158,7 +158,7 @@ public class signInActivity extends AppCompatActivity {
               @Override
               public void onSuccess(Void aVoid) {
                 Log.d(TAG, "DocumentSnapshot successfully written!");
-                Intent intent = new Intent(getApplicationContext(), Main_page.class);
+                Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
                 intent.putExtra("ID", hashedId);
                 intent.putExtra("이름", getName);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

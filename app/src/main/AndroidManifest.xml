@@ -18,10 +18,13 @@
         android:theme="@style/Theme.We_play"
         tools:targetApi="32" >
         <activity
-            android:name=".googleLogin"
+            android:name=".googleLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".signInActivity"
+            android:name=".SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeLoginActivity"
             android:exported="false" />
         <activity
             android:name=".food_page"
@@ -30,7 +33,7 @@
             android:name="com.nhn.android.naverlogin.ui.OAuthCustomTabActivity"
             android:exported="true" />
         <activity
-            android:name=".loginActivity"
+            android:name=".startActivity"
             android:exported="false" />
         <activity
             android:name=".Info_page"
@@ -42,10 +45,10 @@
             android:name=".Category_page"
             android:exported="false" />
         <activity
-            android:name=".Main_page"
+            android:name=".TravelActivity"
             android:exported="false" />
         <activity
-            android:name=".Reserved_page"
+            android:name=".TicketActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

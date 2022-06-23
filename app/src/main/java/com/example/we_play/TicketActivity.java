@@ -2,10 +2,8 @@ package com.example.we_play;
 
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ListView;
 
-import com.example.we_play.Recyclerview.reserved_Adapter;
-import com.example.we_play.Recyclerview.reserved_data;
+import com.example.we_play.Recyclerview.TicketAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -15,9 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Dictionary;
 
-public class Reserved_page extends AppCompatActivity {
+public class TicketActivity extends AppCompatActivity {
     private ArrayList<Dictionary> mArrayList;
-    private reserved_Adapter mAdapter;
+    private TicketAdapter mAdapter;
     private int count = -1;
 
     Button btn_back;
@@ -33,7 +31,7 @@ public class Reserved_page extends AppCompatActivity {
 
         mArrayList = new ArrayList<>();
 
-        mAdapter = new reserved_Adapter(mArrayList);
+        mAdapter = new TicketAdapter(mArrayList);
         mRecyclerView.setAdapter(mAdapter);
 
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(), mLinearLayoutManager.getOrientation());

@@ -3,15 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/round_edittext.xml" value="0.192" />
         <entry key="app/src/main/res/layout/activity_google_login.xml" value="0.184375" />
         <entry key="app/src/main/res/layout/activity_homelogin.xml" value="0.184375" />
         <entry key="app/src/main/res/layout/activity_imformation.xml" value="0.184375" />
         <entry key="app/src/main/res/layout/activity_info_page.xml" value="0.22291666666666668" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.190435791015625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23697916666666666" />
         <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.2690797088839484" />
         <entry key="app/src/main/res/layout/activity_reserved.xml" value="0.2359375" />
-        <entry key="app/src/main/res/layout/activity_signin.xml" value="0.15885416666666666" />
+        <entry key="app/src/main/res/layout/activity_signin.xml" value="0.7632532755533854" />
         <entry key="app/src/main/res/layout/custom_category.xml" value="0.22291666666666668" />
         <entry key="app/src/main/res/layout/reserved_data.xml" value="0.1" />
         <entry key="app/src/main/res/layout/reserved_header.xml" value="0.2359375" />
