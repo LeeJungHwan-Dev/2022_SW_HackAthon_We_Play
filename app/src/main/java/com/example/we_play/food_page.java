@@ -60,22 +60,22 @@ public class food_page extends AppCompatActivity {
         CollectionReference collectionReference = db.collection("관광정보").document(big_city).collection("로컬 맛집");
 
         collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                for(DocumentSnapshot documentSnapshot : task.getResult()){
-                    title.add(documentSnapshot.getId());
-                    String img_url = documentSnapshot.get("thumbnail_url").toString();
-                    String img_url2 = "http://"+ img_url.substring(8);
-                    img_link.add(img_url2);
-                    location.add(documentSnapshot.get("위치정보").toString());
-                    try {
-                        rating.add(documentSnapshot.get("rating").toString());
-                    }catch (Exception e){
-                        rating.add("5");
-                    }
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    for(DocumentSnapshot documentSnapshot : task.getResult()){
+                        title.add(documentSnapshot.getId());
+                        String img_url = documentSnapshot.get("thumbnail_url").toString();
+                        String img_url2 = "http://"+ img_url.substring(8);
+                        img_link.add(img_url2);
+                        location.add(documentSnapshot.get("위치정보").toString());
+                        try {
+                            rating.add(documentSnapshot.get("rating").toString());
+                        }catch (Exception e){
+                            rating.add("5");
+                        }
 
+                    }
                 }
-            }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
@@ -90,8 +90,6 @@ public class food_page extends AppCompatActivity {
                 mAdapter.notifyDataSetChanged();
             }
         });
-
-
     }
 
 
