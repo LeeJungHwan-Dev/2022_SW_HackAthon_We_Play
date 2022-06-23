@@ -15,6 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.We_play"
         tools:targetApi="32">
+
+        <activity android:name=".imformation"
+            android:exported="false"/>
+
         <activity
             android:name=".food_page"
             android:exported="false" />

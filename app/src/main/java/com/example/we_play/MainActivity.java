@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        /*
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
         Timer timer = new Timer();
         timer.schedule(timerTask, 1500);
+*/
+
+        Intent intent = new Intent(getApplicationContext(), imformation.class);
+        startActivity(intent);
 
     }
 
