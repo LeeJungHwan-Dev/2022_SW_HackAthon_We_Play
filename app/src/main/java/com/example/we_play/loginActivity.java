@@ -3,6 +3,7 @@ package com.example.we_play;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import com.example.we_play.Module.RequestApiTask;
@@ -12,14 +13,16 @@ import com.nhn.android.naverlogin.OAuthLoginHandler;
 public class loginActivity extends AppCompatActivity {
 
     OAuthLogin mOAuthLoginModule = OAuthLogin.getInstance();
-    ImageButton btn1;
+    Button btn1, btn2, btn3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btn1 = findViewById(R.id.imageButton3);
+        btn1 = findViewById(R.id.naloginbtn);
+        btn2 = findViewById(R.id.ggloginbtn);
+        btn3 = findViewById(R.id.hmloginbtn);
 
 
         mOAuthLoginModule.init(
