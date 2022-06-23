@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".info_journal_Activity">
 
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="j"
+        tools:layout_editor_absoluteX="202dp"
+        tools:layout_editor_absoluteY="222dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,13 +10,19 @@
         <entry key="..\:/android/Projects/we_play/app/src/main/res/drawable/red_edittext.xml" value="0.259" />
         <entry key="..\:/android/Projects/we_play/app/src/main/res/drawable/shape.xml" value="0.259" />
         <entry key="..\:/android/Projects/we_play/app/src/main/res/drawable/text_box_line.xml" value="0.259" />
+        <entry key="..\:/android/Projects/we_play/app/src/main/res/layout-sw600dp/activity_info_delete.xml" value="0.2" />
         <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_buy_ticket_page.xml" value="0.1" />
         <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_category_list.xml" value="0.17844202898550723" />
         <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_category_page.xml" value="0.21875" />
         <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_food_page.xml" value="0.17844202898550723" />
         <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_google_login.xml" value="0.17844202898550723" />
         <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_info.xml" value="0.264" />
+        <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_info_delete.xml" value="0.21875" />
+        <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_info_edit.xml" value="0.21875" />
+        <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_info_journal.xml" value="0.21875" />
         <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_info_page.xml" value="0.17844202898550723" />
+        <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_info_payment.xml" value="0.21875" />
+        <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_info_service.xml" value="0.21875" />
         <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_info_set.xml" value="0.21875" />
         <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_login.xml" value="0.17844202898550723" />
         <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_main.xml" value="0.17844202898550723" />

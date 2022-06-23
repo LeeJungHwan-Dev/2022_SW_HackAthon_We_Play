@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".info_delete_Activity">
 
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="d"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="181dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

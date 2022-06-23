@@ -35,7 +35,6 @@ public class Category_page extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),infoActivity.class);
                 startActivity(intent);
-                finish();
             }
         });
 
