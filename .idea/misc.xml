@@ -3,19 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_category_list.xml" value="0.17844202898550723" />
-        <entry key="..\:/android/Projects/we_play/app/src/main/res/layout/activity_login.xml" value="0.4" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1335" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1335" />
         <entry key="app/src/main/res/drawable/text_box_line.xml" value="0.1075" />
         <entry key="app/src/main/res/drawable/top_stork.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/top_storke.xml" value="0.1075" />
         <entry key="app/src/main/res/layout/activity_categort_list.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_category_list.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/activity_category_page.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_category_page.xml" value="0.371575927734375" />
+        <entry key="app/src/main/res/layout/activity_food_page.xml" value="0.344" />
         <entry key="app/src/main/res/layout/activity_info_page.xml" value="0.28229166666666666" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.20277777777777778" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.275980224609375" />
-        <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.21518987341772153" />
+        <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.265241753300534" />
         <entry key="app/src/main/res/layout/custom_category.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/custom_food_layout.xml" value="0.15418502202643172" />
         <entry key="app/src/main/res/layout/gird_layout.xml" value="0.28125" />
       </map>
     </option>

@@ -28,11 +28,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     ArrayList<String> rating = new ArrayList<>();
 
 
-    public RecyclerViewAdapter(ArrayList<String> img_link , ArrayList<String> title, ArrayList<String> location, Context context){
+    public RecyclerViewAdapter(ArrayList<String> img_link , ArrayList<String> title, ArrayList<String> location, Context context, ArrayList<String> rating){
         this.img_link = img_link;
         this.title = title;
         this.location = location;
         this.context = context;
+        this.rating = rating;
     }
 
     @NonNull
@@ -55,7 +56,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.food_title.setText(title.get(position));
         holder.food_location.setText(location.get(position));
         BaseRatingBar scaleRatingBar = holder.itemView.findViewById(R.id.rating);
-        scaleRatingBar.setRating(5f);
+        scaleRatingBar.setRating(Float.parseFloat(rating.get(position)));
         Glide.with(context).load(img_link.get(position)).circleCrop().into(holder.food_image);
 
         scaleRatingBar.setOnTouchListener(new View.OnTouchListener() {

@@ -57,7 +57,7 @@
         android:fontFamily="@font/pretendard_medium"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:text="test"
+        android:text=""
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

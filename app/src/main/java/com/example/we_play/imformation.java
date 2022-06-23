@@ -11,23 +11,20 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,6 +35,7 @@ public class imformation extends AppCompatActivity {
   Button button,button3;
   ImageView setImage;
   TextView tv_error_email;
+  Boolean check = false;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +48,7 @@ public class imformation extends AppCompatActivity {
     Year=(EditText)findViewById(R.id.EditYear);
     Month=(EditText)findViewById(R.id.EditMonth);
     Day=(EditText)findViewById(R.id.EditDay);
-    Id=(EditText)findViewById(R.id.EditId);
+    Id=(EditText)findViewById(R.id.EditId); // id
     Pass=(EditText)findViewById(R.id.EditPass);
     PassCheck=(EditText)findViewById(R.id.EditPassCheck);
     button=findViewById(R.id.button1);
@@ -73,11 +71,11 @@ public class imformation extends AppCompatActivity {
         public void afterTextChanged(Editable s) {
           if(!android.util.Patterns.EMAIL_ADDRESS.matcher(s.toString()).matches()){
             tv_error_email.setText("이메일 형식으로 입력해주세요.");    // 경고 메세지
-            Id.setBackgroundResource(R.drawable.red_edittext);  // 적색 테두리 적용
+            //Id.setBackgroundResource(R.drawable.red_edittext);  // 적색 테두리 적용
           }
           else{
             tv_error_email.setText("");         //에러 메세지 제거
-            Id.setBackgroundResource(R.drawable.white_edittext);  //테투리 흰색으로 변경
+            //Id.setBackgroundResource(R.drawable.white_edittext);  //테투리 흰색으로 변경
           }
         }// afterTextChanged()..
       });
@@ -87,7 +85,8 @@ public class imformation extends AppCompatActivity {
       @Override
       public void onClick(View view) {
 
-        CollectionReference collectionReference = db.collection("회원정보");
+          two_id_check(Id.getText().toString());
+
 
 
 
@@ -133,44 +132,85 @@ public class imformation extends AppCompatActivity {
       @Override
       public void onClick(View view) {
 
+
+
+
         String getPass = Pass.getText().toString();
           String getName = Name.getText().toString();
           int getNumber = parseInt(Number.getText().toString());
           String Birthday = Year.getText().toString() + "/" + Month.getText().toString() + "/" + Day.getText().toString();
           String getId = Id.getText().toString();
 
+          two_id_check(getId);
 
+          if(check == false) {
+              Map<String, Object> user = new HashMap<>();
 
-        Map<String, Object> user = new HashMap<>();
+              user.put("Name", getName);
+              user.put("PhoneNumber", getNumber);
+              user.put("BirthDay", Birthday);
+              user.put("ID", getId);
+              user.put("Password", getPass);
+              user.put("Site", "home");
 
-        user.put("Name", getName);
-        user.put("PhoneNumber", getNumber);
-        user.put("BirthDay", Birthday);
-        user.put("ID", getId);
-        user.put("Password", getPass);
-        user.put("Site","home");
-
-        
 
 // Add a new document with a generated ID
-        db.collection("회원정보")
-          .document(getId)
-          .set(user)
-          .addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-              Log.d(TAG, "DocumentSnapshot successfully written!");
-            }
-          })
-          .addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-              Log.w(TAG, "Error writing document", e);
-            }
-          });
+              db.collection("회원정보")
+                      .document(getId)
+                      .set(user)
+                      .addOnSuccessListener(new OnSuccessListener<Void>() {
+                          @Override
+                          public void onSuccess(Void aVoid) {
+                              Log.d(TAG, "DocumentSnapshot successfully written!");
+                          }
+                      })
+                      .addOnFailureListener(new OnFailureListener() {
+                          @Override
+                          public void onFailure(@NonNull Exception e) {
+                              Log.w(TAG, "Error writing document", e);
+                          }
+                      });
+          }else{
+              Toast.makeText(getApplicationContext(),"중복된 아이디가 존재합니다",Toast.LENGTH_SHORT).show();
+          }
+        }
+      });
 
-      }});
-  }}
+  }
+
+
+  public void two_id_check(String id){
+      check = false;
+
+      FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+      CollectionReference collectionReference = db.collection("회원정보");
+
+
+      collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+          @Override
+          public void onComplete(@NonNull Task<QuerySnapshot> task) {
+              for(DocumentSnapshot documentSnapshot : task.getResult()){
+                  if(id.equals(documentSnapshot.getId())){
+                      check = true; // 중복값이 있으면 true
+                  }
+              }
+          }
+      }).addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+          @Override
+          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+              if(check == true){
+                  Toast.makeText(getApplicationContext(),"중복값이 존재합니다",Toast.LENGTH_SHORT).show();
+              }
+          }
+      });
+  }
+
+
+}
+
+
+
 
 
 

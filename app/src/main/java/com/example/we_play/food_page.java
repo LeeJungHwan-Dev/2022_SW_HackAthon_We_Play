@@ -29,6 +29,7 @@ public class food_page extends AppCompatActivity {
     ArrayList<String> img_link = new ArrayList<>();
     ArrayList<String> title = new ArrayList<>();
     ArrayList<String> location = new ArrayList<>();
+    ArrayList<String> rating = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,12 @@ public class food_page extends AppCompatActivity {
                     String img_url2 = "http://"+ img_url.substring(8);
                     img_link.add(img_url2);
                     location.add(documentSnapshot.get("위치정보").toString());
+                    try {
+                        rating.add(documentSnapshot.get("rating").toString());
+                    }catch (Exception e){
+                        rating.add("5");
+                    }
+
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -60,7 +67,7 @@ public class food_page extends AppCompatActivity {
         }).addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(img_link,title,location,getApplicationContext());
+                RecyclerViewAdapter mAdapter = new RecyclerViewAdapter(img_link,title,location,getApplicationContext(),rating);
                 foodview.setAdapter(mAdapter);
                 foodview.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 mAdapter.notifyDataSetChanged();
