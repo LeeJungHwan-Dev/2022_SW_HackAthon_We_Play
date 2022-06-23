@@ -10,26 +10,13 @@
         android:id="@+id/backBtn"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/next"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <ImageView
-        android:id="@+id/profile"
-        android:layout_width="104dp"
-        android:layout_height="103dp"
-        app:srcCompat="@drawable/ic_baseline_account_circle_24"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="77dp" />
-
-    <TextView
-        android:id="@+id/emailView"
-        android:layout_width="170dp"
-        android:layout_height="22dp"
-        android:text="ealrybird2022@email.com"
-        android:textColor="@color/gray_21"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="139dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023"
+        app:srcCompat="@drawable/next" />
 
     <TextView
         android:id="@+id/nameView"
@@ -38,8 +25,35 @@
         android:text="이정환님! 좋은 하루 되세요"
         android:textColor="@color/black"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="143dp"
-        tools:layout_editor_absoluteY="112dp" />
+        app:layout_constraintBottom_toTopOf="@+id/emailView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/profile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.992" />
+
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="116dp"
+        android:layout_height="112dp"
+        android:layout_marginStart="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.113"
+        app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+
+    <TextView
+        android:id="@+id/emailView"
+        android:layout_width="170dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="556dp"
+        android:text="ealrybird2022@email.com"
+        android:textColor="@color/gray_21"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/profile" />
 
     <TextView
         android:id="@+id/textView3"
@@ -47,76 +61,100 @@
         android:layout_height="480dp"
         android:background="@drawable/shape"
         android:backgroundTint="#A0D6F1"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="198dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.796" />
 
     <Button
         android:id="@+id/delete"
-        android:layout_width="87dp"
-        android:layout_height="35dp"
+        android:layout_width="91dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
         android:background="@android:color/transparent"
         android:text="회원 탈퇴"
-        android:textColor="#7C6E6E"
+        android:textColor="#858080"
         android:textSize="15sp"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="680dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/infoEdit"
         android:layout_width="300dp"
         android:layout_height="70dp"
+        android:layout_marginTop="224dp"
         android:background="@drawable/shape"
         android:text="내 정보 수정"
-        android:textSize="20sp"
         android:textColor="@color/black"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="222dp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/service"
         android:layout_width="300dp"
         android:layout_height="70dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/shape"
         android:includeFontPadding="false"
         android:text="고객센터"
-        android:textSize="20sp"
         android:textColor="@color/black"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="581dp" />
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/set"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/payment"
         android:layout_width="300dp"
         android:layout_height="70dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/shape"
         android:text="결제 수단"
-        android:textSize="20sp"
         android:textColor="@color/black"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="402dp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/journal" />
 
     <Button
         android:id="@+id/set"
         android:layout_width="300dp"
         android:layout_height="70dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/shape"
         android:includeFontPadding="false"
         android:text="설정"
-        android:textSize="20sp"
         android:textColor="@color/black"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="493dp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payment" />
 
     <Button
         android:id="@+id/journal"
         android:layout_width="300dp"
         android:layout_height="70dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/shape"
         android:text="내 여행기록"
-        android:textSize="20sp"
         android:textColor="@color/black"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="312dp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infoEdit" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
