@@ -29,6 +29,9 @@
             android:name=".Main_page"
             android:exported="false" />
         <activity
+            android:name=".Reserved_page"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

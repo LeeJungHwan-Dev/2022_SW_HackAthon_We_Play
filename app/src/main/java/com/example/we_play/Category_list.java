@@ -73,9 +73,6 @@ public class Category_list extends AppCompatActivity {
                         }
 
                     }
-
-
-
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {

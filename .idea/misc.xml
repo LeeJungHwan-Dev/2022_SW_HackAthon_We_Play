@@ -3,22 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable/text_box_line.xml" value="0.1075" />
-        <entry key="app/src/main/res/drawable/top_stork.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/top_storke.xml" value="0.1075" />
-        <entry key="app/src/main/res/layout/activity_categort_list.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/activity_category_list.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/activity_category_page.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/activity_info_page.xml" value="0.28229166666666666" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.20277777777777778" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.275980224609375" />
-        <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.21518987341772153" />
-        <entry key="app/src/main/res/layout/custom_category.xml" value="0.28125" />
-        <entry key="app/src/main/res/layout/gird_layout.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23697916666666666" />
+        <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.2690797088839484" />
+        <entry key="app/src/main/res/layout/activity_reserved.xml" value="0.2359375" />
+        <entry key="app/src/main/res/layout/reserved_data.xml" value="0.2359375" />
+        <entry key="app/src/main/res/layout/reserved_header.xml" value="0.2359375" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
