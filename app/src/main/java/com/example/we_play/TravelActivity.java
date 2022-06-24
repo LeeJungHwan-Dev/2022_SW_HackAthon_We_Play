@@ -33,11 +33,10 @@ public class TravelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
+        Intent mintent = getIntent();
+
         city_chose = findViewById(R.id.city_chose);
         back = findViewById(R.id.main_page_back_btn);
-
-        Intent intent = getIntent();
-
 
         /**
          *
@@ -60,16 +59,15 @@ public class TravelActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                reset_city();
-
+                Intent intent = new Intent(getApplicationContext(), HomePage.class);
+                intent.putExtra("아이디", mintent.getStringExtra("아이디"));
+                intent.putExtra("이름", mintent.getStringExtra("이름"));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+                finish();
             }
         });
-
-        try {
-            save("id.txt",intent.getStringExtra("아이디"));
-            save("name.txt",intent.getStringExtra("이름"));
-        }catch (Exception e){}
     }
 
 
@@ -90,21 +88,7 @@ public class TravelActivity extends AppCompatActivity {
         city_chose.setAdapter(city_adapter);
     }
 
-    public void save(String filename,String date) {
-        if (date != null) {
-            try {
-                FileOutputStream fo = openFileOutput(filename, Context.MODE_PRIVATE);
-                DataOutputStream dos = new DataOutputStream(fo);
-                dos.writeUTF(date);
-                dos.flush();
-                dos.close();
-            } catch (FileNotFoundException e) {
 
-            } catch (IOException e) {
-
-            }
-        }
-    }
 
     @Override
     public void onBackPressed() {

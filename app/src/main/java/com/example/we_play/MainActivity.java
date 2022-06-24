@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), startActivity.class);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(getApplicationContext(), TravelActivity.class);
+            Intent intent = new Intent(getApplicationContext(), HomePage.class);
             intent.putExtra("아이디",data.get("아이디"));
             intent.putExtra("이름",data.get("이름"));
             startActivity(intent);

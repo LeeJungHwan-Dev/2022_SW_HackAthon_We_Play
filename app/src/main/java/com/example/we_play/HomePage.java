@@ -9,6 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.DataOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class HomePage extends AppCompatActivity {
 
@@ -22,14 +28,23 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.herego);
 
-        Intent intent = getIntent();
-        String id = intent.getStringExtra("아이디");
-        String name = intent.getStringExtra("이름");
+        Intent mintent = getIntent();
+        String id = mintent.getStringExtra("아이디");
+        String name = mintent.getStringExtra("이름");
+
+        try {
+            save("id.txt",id);
+            save("name.txt",name);
+        }catch (Exception e){
+            System.out.println("Fail to save login data");
+        }
 
         name1 = (TextView) findViewById(R.id.name1);
         name2 = (TextView) findViewById(R.id.name2);
         name1.setText(name);
         name2.setText(name);
+        name1.setTextSize(15);
+        name2.setTextSize(15);
 
         travel = (Button) findViewById(R.id.button1);
         ticket = (ImageButton) findViewById(R.id.Imbutton2);
@@ -59,4 +74,21 @@ public class HomePage extends AppCompatActivity {
         });
 
     }
+
+    public void save(String filename,String date) {
+        if (date != null) {
+            try {
+                FileOutputStream fo = openFileOutput(filename, Context.MODE_PRIVATE);
+                DataOutputStream dos = new DataOutputStream(fo);
+                dos.writeUTF(date);
+                dos.flush();
+                dos.close();
+            } catch (FileNotFoundException e) {
+
+            } catch (IOException e) {
+
+            }
+        }
+    }
+
 }

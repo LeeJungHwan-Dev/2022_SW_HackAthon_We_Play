@@ -2,7 +2,9 @@ package com.example.we_play;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.we_play.TickerView.TicketAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,14 +33,30 @@ public class TicketActivity extends AppCompatActivity {
     public TicketAdapter mAdapter;
     private int count = -1;
 
+    ImageButton btn_toHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reserved);
 
-        Intent intent = getIntent();
-        String id = intent.getStringExtra("아이디");
+        Intent mintent = getIntent();
+        String id = mintent.getStringExtra("아이디");
+        String name = mintent.getStringExtra("이름");
+
+        btn_toHome = (ImageButton) findViewById(R.id.btn_to_main_page);
+        btn_toHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), HomePage.class);
+                intent.putExtra("아이디", id);
+                intent.putExtra("이름", name);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein,R.anim.fadeout);
+                finish();
+            }
+        });
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference ticketRef = db.collection("회원정보").document(id).collection("티켓기록");
