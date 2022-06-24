@@ -23,6 +23,7 @@ import java.io.InputStreamReader;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import kotlin.Unit;
 
@@ -66,6 +67,8 @@ public class KakaoPay extends Application {
 
         buyer_name = "구매자";
 
+        amount = String.valueOf(random_int() * 1000);
+
         IamPortRequest request = IamPortRequest.builder()
                 .pg(PG.kcp.makePgRawName(""))
                 .pay_method(PayMethod.card.name())
@@ -90,11 +93,11 @@ public class KakaoPay extends Application {
                         Map<String,String> pay_info = new HashMap<>();
                         pay_info.put("Overdue","false");
                         pay_info.put("Used","false");
-                        pay_info.put("date",date);
-                        pay_info.put("numTicket",peoplecount);
-                        pay_info.put("price",amount);
-                        pay_info.put("location",location);
-                        pay_info.put("img_url",img_url);
+                        pay_info.put("Date",date);
+                        pay_info.put("NumTicket",peoplecount);
+                        pay_info.put("Price",amount);
+                        pay_info.put("Location",location);
+                        pay_info.put("Thumbnail_url",img_url);
 
 
                         db.collection("회원정보").document(email).collection("티켓기록").document(name).set(pay_info).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -117,7 +120,14 @@ public class KakaoPay extends Application {
     }
 
 
+    public int random_int(){
 
+        int min = 6;
+        int max = 15;
+        int number = (int) (Math.random()*(max-min)) + min;
+
+        return number;
+    }
 
 }
 
