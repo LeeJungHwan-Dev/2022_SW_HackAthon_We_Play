@@ -77,7 +77,7 @@ public class buy_ticket_page extends AppCompatActivity {
         set_day.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                chose_day.setText("날짜 : "+String.valueOf(year)+"/"+String.valueOf(month)+"/"+String.valueOf(dayOfMonth));
+                chose_day.setText("날짜 : "+String.valueOf(year)+"/"+String.valueOf(month+1)+"/"+String.valueOf(dayOfMonth));
                 date = String.valueOf(year)+"."+String.valueOf(month)+"."+String.valueOf(dayOfMonth);
             }
         });
