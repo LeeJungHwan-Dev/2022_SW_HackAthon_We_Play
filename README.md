@@ -1,3 +1,4 @@
+## 시연 영상
 https://youtu.be/b4fq11Wnrqg
 
 ## 프로젝트명 : 함께놀자
@@ -22,5 +23,3 @@ https://youtu.be/b4fq11Wnrqg
 - 익숙하지 않은 전국 명소 소개
 - 손쉽게 여행을 계획하고 즐기기
 
-## 시연 영상
-<https://youtu.be/b4fq11Wnrqg/>
