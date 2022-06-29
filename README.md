@@ -35,20 +35,20 @@ https://www.youtube.com/watch?v=M9eDC1NLYag
 ## 주요 기능 이미지
 <table align="center">
 <tr>
-<td><img src = "https://user-images.githubusercontent.com/93726941/176433569-c095cfca-7f98-4dfb-b3bd-2bc8dadc6f24.png" width = "300" hight = "400"/><td> 
-<td><img src = "https://user-images.githubusercontent.com/93726941/176442729-f65d9c1b-4644-4d11-b674-952aad33d9ff.png" width = "300" hight = "400"/><td>
+<td><img src = "https://user-images.githubusercontent.com/93726941/176433569-c095cfca-7f98-4dfb-b3bd-2bc8dadc6f24.png" width = "300" hight = "400"/>
+<td><img src = "https://user-images.githubusercontent.com/93726941/176442729-f65d9c1b-4644-4d11-b674-952aad33d9ff.png" width = "300" hight = "400"/>
 <td><img src = "https://user-images.githubusercontent.com/93726941/176442925-0c338fae-9d2d-4759-abad-ef13c00d7171.png" width = "300" hight = "400"/>
 <tr>
 <tr>
-    <td><img src = "https://user-images.githubusercontent.com/93726941/176446116-89501b16-0416-4cd3-b78f-43b37c00322f.png" width = "300" hight = "400"/> <td>
-    <td><img src = "https://user-images.githubusercontent.com/93726941/176446320-10d4c274-4226-4bf5-be72-af39ffb58dfa.png" width = "300" hight = "400"/><td>
+    <td><img src = "https://user-images.githubusercontent.com/93726941/176446116-89501b16-0416-4cd3-b78f-43b37c00322f.png" width = "300" hight = "400"/>
+    <td><img src = "https://user-images.githubusercontent.com/93726941/176446320-10d4c274-4226-4bf5-be72-af39ffb58dfa.png" width = "300" hight = "400"/>
     <td><img src = "https://user-images.githubusercontent.com/93726941/176446953-7410494b-1a87-411f-aaa6-a25d10a7c879.png" width = "300" hight = "400"/>
     
 <tr>
   
 <tr>
-    <td><img src = "https://user-images.githubusercontent.com/93726941/176447302-c1be4f91-17b0-4d34-9e8f-cece2194199b.png" width = "300" hight = "400"/> <td>
-    <td><img src = "https://user-images.githubusercontent.com/93726941/176447333-eade9bf3-a97a-421a-9826-b1685bb43d8c.png" width = "300" hight = "400"/><td>
+    <td><img src = "https://user-images.githubusercontent.com/93726941/176447302-c1be4f91-17b0-4d34-9e8f-cece2194199b.png" width = "300" hight = "400"/>
+    <td><img src = "https://user-images.githubusercontent.com/93726941/176447333-eade9bf3-a97a-421a-9826-b1685bb43d8c.png" width = "300" hight = "400"/>
   
   <td><img src = "https://user-images.githubusercontent.com/93726941/176449152-334411bc-ba51-406c-b687-7c7d32bb8815.png" width = "300" hight = "400"/>
   
