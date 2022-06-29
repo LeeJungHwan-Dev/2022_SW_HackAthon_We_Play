@@ -1,3 +1,6 @@
+# 2022 SW 중심대학 공동해커톤
+- 기간 : 2022 / 06 / 22 ~ 2022 / 06 / 24
+
 ## 영상
 https://www.youtube.com/watch?v=M9eDC1NLYag
 
