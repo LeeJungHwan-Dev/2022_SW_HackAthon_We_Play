@@ -1,5 +1,5 @@
-## 시연 영상
-https://youtu.be/b4fq11Wnrqg
+## 영상
+https://www.youtube.com/watch?v=M9eDC1NLYag
 
 ## 프로젝트명 : 함께놀자
 ### 팀명 : 얼리버드
