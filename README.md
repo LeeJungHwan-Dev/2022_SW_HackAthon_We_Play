@@ -1,9 +1,6 @@
 # 2022 SW 중심대학 공동해커톤
 > 기간 : 2022 / 06 / 22 ~ 2022 / 06 / 24
 
-## 영상
-https://www.youtube.com/watch?v=M9eDC1NLYag
-
 ## 프로젝트명 : 함께놀자
 ### 팀명 : 얼리버드
 
@@ -31,22 +28,8 @@ https://www.youtube.com/watch?v=M9eDC1NLYag
 - 손쉽게 여행을 계획하고 즐기기
 
 
-## 개발/배포 환경
-- 지원 OS : Android<br>
-- 사용 IDE : Android Studio<br>
-- 언어 : JAVA<br>
-- 배포 여부 : X<br>
-
-## 사용 라이브러리
-- 이미지 : Glide<br>
-- 로그인 : Naver Login<br>
-- 결제 : Iamport<br>
-- DB : Firebase Cloud storage<br>
-
-## 테스트 환경
-- 안드로이드 Ver : Android 12<br>
-- Sdk Level : 32<br>
-- Ram : 4G<br>
+## 영상
+https://www.youtube.com/watch?v=M9eDC1NLYag
 
 
 ## 주요 기능 이미지
@@ -71,6 +54,25 @@ https://www.youtube.com/watch?v=M9eDC1NLYag
   
 <tr>
 </table>
+
+<br>
+
+## 개발/배포 환경
+- 지원 OS : Android<br>
+- 사용 IDE : Android Studio<br>
+- 언어 : JAVA<br>
+- 배포 여부 : X<br>
+
+## 사용 라이브러리
+- 이미지 : Glide<br>
+- 로그인 : Naver Login<br>
+- 결제 : Iamport<br>
+- DB : Firebase Cloud storage<br>
+
+## 테스트 환경
+- 안드로이드 Ver : Android 12<br>
+- Sdk Level : 32<br>
+- Ram : 4G<br>
   
   
   
